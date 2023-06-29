@@ -126,11 +126,11 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 1.  Each resource has an html landing page that describes the resource for human users, and contains embedded CDIF JSON-LD metadata (See [Appendix 1]()) for machine clients.]{.mark} Metadata can be embedded in landing pages using the HTML \<script\> element, in alignment with the Data on the Web Best Practices, specifically section 8.2, Metadata[^8]. This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the \<head\> section of an HTML document. The \<script\> element has a 'type' attribute that provides a MIME-type specifying the type of script.
 
-![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.]
+![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/JSON-LDscriptInHTML.jpg)
 
 2.  Metadata can be embedded in the HTML \<head\> section of a landing page using HTML \<meta\> elements, which have a 'name' attribute that can be used to identify different metadata properties (see example below). This approach is implemented by some off-the-shelf repository software. The HTML \<meta\> elements are intended to describe the HTML document that contains the \<meta\> element[^9], not some external resource that the web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows much richer metadata content to be included.
 
-![][4]
+![Example D2. HTML meta tags with metadata about a resource.](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/HTMLmetaMetadata.png)
 
 3.  Metadata can be linked from the landing page using the HTML \<link\> element in the \<head\> section to provide a web locator (URL) that can be used to retrieve a full metadata document about the described resource. The link element has a 'rel' attribute that can be used to indicate that the link is to metadata, and a 'type' attribute that can provide the MIME type of the target metadata record. This approach depends on web-crawlers identifying and following these links to get the metadata that the provider wants indexed. This is one of the 'signposting' approaches[^10].
 
@@ -138,13 +138,13 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 5.  A sitemap can point directly to metadata documents in formats that the search engine can parse. CDIF JSON-LD metadata documents are accessible via a URL. All metadata conforms to a single set of conventions for content and serialization (a profile).
 
-Another option is [for the sitemap to provide a URL that retrieves a]{.mark} [document containing a collection of metadata records, something like the US Government Data.gov Project Open Data Catalog]{.mark}[^15][, or Ocean Info Hub graph first approach]{.mark}[^16][, with individual records using CDIF JSON-LD.]{.mark}
+Another option is for the sitemap to provide a URL that retrieves a document containing a collection of metadata records, something like the US Government Data.gov Project Open Data Catalog[^15], or Ocean Info Hub graph first approach[^16], with individual records using CDIF JSON-LD.
 
-[How do harvesters know where to look?]{.mark}
+*How do harvesters know where to look?*
 
--   [Publishers register metadata services with a harvester, e.g. providing a URL to GET a sitemap or other metadata catalog document, e.g. an OpenGeospatial Consortium (OGC) Record collection (catalogue).]{.mark}[^17]
+-   Publishers register metadata services with a harvester, e.g. providing a URL to GET a sitemap or other metadata catalog document, e.g. an OpenGeospatial Consortium (OGC) Record collection (catalogue).[^17]
 
--   [Server robots.txt has link to sitemap.xml file; The sitemap.xml lists web locations that a crawler should index.]{.mark}
+-   Server robots.txt has link to sitemap.xml file; The sitemap.xml lists web locations that a crawler should index.
 
 Once the harvester has a URL for a location to index, how do they know where the metadata is relative to that location? There are several approaches:
 
@@ -152,13 +152,15 @@ Once the harvester has a URL for a location to index, how do they know where the
 
 -   Metadata is embedded in the html of a web page as a script, type. NOTE: CDIF needs to define a MIME type or other id string to identify metadata serialized with CDIF JSON-LD
 
--   Labeled links that will get the metadata are embedded in the HTML \<head\>. The link should include the [IANA Link header] relation 'described by', and 'profile'.
+-   Labeled links that will get the metadata are embedded in the HTML \<head\>. The link should include the [IANA Link header](https://www.iana.org/assignments/link-relations/link-relations.xhtml) relations 'described by', and 'profile'.
 
 -   Server provides link elements in HTTP headers.
 
 *What does the harvester do with the metadata?* There a many possible approaches a client application could use to extract the information it needs from a metadata record. The simplest and likely most accurate approach is for the metadata to conform to a profile that the application is programmed to parse, and to communicate that profile conformance to the application. This entails two requirements. The profile must be documented in a way that allows software developers to write code to parse metadata conforming to the profile, and the profile must have an identifier that can be used to assert conformance.
 
 The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications \-- using different formats or profiles[^18]. The \<script\> 'type' attribute could specify the profile using parameters on the MIME type.
+
+![Example D3. Script type with a type parameter in the MIME type string](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/TypedScriptInHTML.png)
 
 Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
 
@@ -169,6 +171,9 @@ Minimally, the metadata record should assert the specification used to generate 
 These recommendations are intended to be applicable for publication of metadata on the web to support a basic level of discovery interoperability for static resources with or without associated landing pages. Resources accessible via APIs that support functionality beyond simple static resource retrieval, e.g. subsetting, filtering, data transformations, or negotiation transactions related to security or confidentiality, are out of scope. Future work will define levels of conformance for more sophisticated functionality. For the CDIF, we recommend conventions for 1) what conventions ('standards') should be used so that the metadata is machine actionable; 2) how search engines find documents to index; 3) how metadata is incorporated in or accessed from those documents. The content recommendations and implementation outlined in [Appendix 1](#app1) cover the first of these topics. The second and third topics are discussed here.
 
 Figure D1 (below) is a flow chart showing the recommended decision tree for metadata publishers to determine how to expose their metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
+
+![Figure 2. Decision graph to determine where metadata is located](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/MetadataPublicationWorkflow.png)
+
 
 ### Embedded in HTML
 
@@ -256,19 +261,19 @@ Definitions in this section follow the conventions outlined in ISO704[^26]. Defi
     > The subject resource was created by transformation of the object resource, update (not revision) of the object resource resulting in a new entity, or the construction of a new entity based on the object resource. (based on PROV-DM[^32])
 
 -   specializationOf\
-    > The subject resource shares all aspects of the the object resource, and additionally presents more specific aspects, e.g. restrictions on property ranges, additional properties.(based on PROV-DM)
+    > The subject resource shares all aspects of the the object resource, and additionally presents more specific aspects, e.g. restrictions on property ranges, additional properties.(based on PROV-DM[^32])
 
 -   wasRevisionOf\
-    > The subject resource is a version of the object resource that has been corrected or improved in some way. (based on PROV-DM)
+    > The subject resource is a version of the object resource that has been corrected or improved in some way. (based on PROV-DM[^32])
 
 -   hadPrimarySource\
-    > The subject resource was produced with information from some agent (the object resource) having direct experience and knowledge about the topic of the subject resource.(based on PROV-DM)
+    > The subject resource was produced with information from some agent (the object resource) having direct experience and knowledge about the topic of the subject resource.(based on PROV-DM[^32])
 
 -   wasQuotedFrom\
-    > Some or all of the object resource is copied in the subject resource by someone who may or may not be its original author. (based on PROV-DM)
+    > Some or all of the object resource is copied in the subject resource by someone who may or may not be its original author. (based on PROV-DM[^32])
 
 -   alternateOf\
-    > The subject resource presents the same content as the object resource in a different expression or manifestation. (based on PROV-DM)
+    > The subject resource presents the same content as the object resource in a different expression or manifestation. (based on PROV-DM[^32])
 
 # <a name="app1" /a> Appendix 1
 
@@ -745,35 +750,4 @@ Implementation approach to supplying PID Kernel information records associated w
 
 [^48]: [https://www.w3.org/TR/dx-prof-conneg/]{.mark}
 
-  [ISO 8601 date and time]: http://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations
-  [WGS 84]: http://en.wikipedia.org/wiki/World_Geodetic_System
-  [1]: media/image2.png {width="6.184512248468941in" height="5.386510279965004in"}
-  [2]: #metadata-content-requirements
-  [3]: #serialization-of-cdif-metadata
-  [Example D1. A JSON-LD metadata object embedded as a script in an HTML document.]: media/image1.png {width="4.208333333333333in" height="2.5520833333333335in"}
-  [4]: media/image5.png {width="6.5in" height="3.763888888888889in"}
-  [5]: https://www.iana.org/assignments/link-relations/link-relations.xhtml
-  [6]: media/image4.png {width="4.354166666666667in" height="1.1979166666666667in"}
-  [7]: media/image7.png {width="3.2031255468066493in" height="4.195169510061242in"}
-
-
-  [9]: http://purl.org/dc/terms/
-  [10]: http://resource.geosciml.org/classifier/ics/ischart/
-  [11]: https://perio.do/en/
-  [12]: https://n2t.net/
-  [13]: https://repository.org/images/2423757.tif
-  [14]: https://en.wikipedia.org/wiki/Robots.txt
-  [15]: https://en.wikipedia.org/w/index.php?title=Robots.txt&action=edit&section=8
-  [16]: media/image6.png {width="1.8679265091863517in" height="2.3671872265966756in"}
-  [17]: media/image3.png {width="6.5in" height="1.5in"}
-  [18]: https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0/edit?usp=sharing
-  [10.15497/RDA00031]: https://doi.org/10.15497/RDA00031
-  [19]: https://www.w3.org/TR/dwbp/#metadata
-  [20]: https://signposting.org/
-  [21]: https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body
-  [22]: https://book.oceaninfohub.org/indexing/graphpub.html
-  [23]: https://docs.google.com/document/d/1c2mZziq5pIPmLxMHLcYqlWrjYsc2ezGMXvp0E46iljo
-  [24]: https://fairdigitalobjectframework.org/
-  [25]: https://schema.org/
-  [26]: https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
-  [27]: https://www.w3.org/TR/json-ld11/
+ 

@@ -275,7 +275,8 @@ Definitions in this section follow the conventions outlined in ISO704[^26]. Defi
 -   alternateOf\
     > The subject resource presents the same content as the object resource in a different expression or manifestation. (based on PROV-DM[^32])
 
-# <a name="app1" /a> Appendix 1
+# Appendix 1
+<a name="app1" /a>
 
 # Serialization of CDIF metadata 
 
@@ -418,7 +419,7 @@ The following table maps the metadata content items described in the [Metadata C
 
 -   Identifier. {identifier scheme, identifier string, resolvable identifier string}. This pattern is for identifiers that are useful to scope in the context of a scheme. The identifier scheme is associated with some authority (e.g. IBSN) that manages unique identifiers within their scope. If the identifier can be associated with a resolver to create a resolvable identifier string, typically an HTTP URL with a resolver host name (e.g https://n2t.net/) to which the identifier is suffixed to obtain a representation of the thing identified.
 
--   AgentObject. {name, agenttype, identifier, contactpoint, ifPerson-affiliation}. This pattern is for specifying an Agent in the prove sense: An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent\'s activity. Agents can be persons, organizations, or software-defined actors. Agents have a name for human recognition, a type, an identifier, contactPoint and affiliation. Machine agent contact points should be the accessible human who operations the environment running the machine agent.
+-   AgentObject. {name, agenttype, identifier, contactpoint, if the agen is a Person, include affiliation}. This pattern is for specifying an Agent in the prove sense: An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent\'s activity. Agents can be persons, organizations, or software-defined actors. Agents have a name for human recognition, a type, an identifier, contactPoint and affiliation. Machine agent contact points should be the accessible human who operations the environment running the machine agent.
 
 -   DistributionObject {contentURL, encodingFormat, conformsTo, distributionAgent }. A pattern for specifying information necessary or useful for implementing machine access to a DigitalObject that is or represents a resource of interest. Includes a URL for the web location at which the DigitalObject can be accesses, the specifications or profiles to which the serialization and content of the object conform, and the Agent responsible for the distribution platform. This agent is the contact point if there are problems accessing the distributed digitalObject.
 
@@ -654,37 +655,37 @@ Implementation approach to supplying PID Kernel information records associated w
 
 [^1]: https://www.dublincore.org/resources/metadata-basics/
 
-[^2]: [[https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0]{.underline}][18]
+[^2]: https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0
 
-[^3]:
+[^3]: https://docs.google.com/spreadsheets/d/1wFuJ4RRlNirnrPfuY_d57I9_pnaNibw4nltNTkruSp0/edit?usp=drive_link
 
-[^4]: <https://b2share.eudat.eu>,
+[^4]: https://b2share.eudat.eu,
 
-    <https://doi.org/10.23728/B2SHARE.2317B12321764F669C92EBBCF7518164>
+    https://doi.org/10.23728/B2SHARE.2317B12321764F669C92EBBCF7518164
 
 [^5]: https://en.wikipedia.org/wiki/HTTPRange-14
 
 [^6]: https://www.loc.gov/cds/downloads/FRBR.PDF
 
-[^7]: Weigel, T., Plale, B., Parsons, M., Zhou, G., Luo, Y., Schwardmann, U., Quick, R., Hellström, M., Kurakawa, K. (2018). RDA Recommendation on PID Kernel Information (Version 1). DOI: [10.15497/RDA00031][.]{.mark}
+[^7]: Weigel, T., Plale, B., Parsons, M., Zhou, G., Luo, Y., Schwardmann, U., Quick, R., Hellström, M., Kurakawa, K. (2018). RDA Recommendation on PID Kernel Information (Version 1). DOI: https://doi.org/10.15497/RDA00031
 
-[^8]: [[https://www.w3.org/TR/dwbp/#metadata]{.underline}][19]
+[^8]: https://www.w3.org/TR/dwbp/#metadata
 
 [^9]: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html
 
-[^10]: [[https://signposting.org/]{.underline}][20]
+[^10]: https://signposting.org/
 
-[^11]: <https://tools.ietf.org/html/rfc8288>
+[^11]: https://tools.ietf.org/html/rfc8288
 
-[^12]: <https://www.w3.org/TR/ldp/#ldpr-hdrs>
+[^12]: https://www.w3.org/TR/ldp/#ldpr-hdrs
 
-[^13]: <https://tools.ietf.org/html/rfc7231#section-4.3.2>
+[^13]: https://tools.ietf.org/html/rfc7231#section-4.3.2
 
-[^14]: [[https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body]{.underline}][21]
+[^14]: https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body
 
 [^15]: https://project-open-data.cio.gov/v1.1/schema/catalog.json
 
-[^16]: [[https://book.oceaninfohub.org/indexing/graphpub.html]{.underline}][22]
+[^16]: https://book.oceaninfohub.org/indexing/graphpub.html
 
 [^17]: https://docs.ogc.org/DRAFTS/20-004.html#sc_record-collection-overview
 
@@ -706,29 +707,29 @@ Implementation approach to supplying PID Kernel information records associated w
 
 [^26]: https://edisciplinas.usp.br/pluginfile.php/312607/mod_resource/content/1/ISO%20704.pdf
 
-[^27]: PR-PIDProfileAttributes-2.0-20220608 ([[https://docs.google.com/document/d/1c2mZziq5pIPmLxMHLcYqlWrjYsc2ezGMXvp0E46iljo]{.underline}][23]); Bonino, Guizzardi, Sales 2022 ([[https://fairdigitalobjectframework.org/]{.underline}][24]), PR-KernelAtributues-2.0 ([[https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0]{.underline}][18])
+[^27]: PR-PIDProfileAttributes-2.0-20220608 (https://docs.google.com/document/d/1c2mZziq5pIPmLxMHLcYqlWrjYsc2ezGMXvp0E46iljo); Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/), PR-KernelAtributues-2.0 (https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0)
 
 [^28]: https://doi.org/10.1007/s00799-005-0128-x
 
 [^29]: https://www.ietf.org/archive/id/draft-kunze-ark-37.html#name-definition-of-identifier-2
 
-[^30]: [[https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0]{.underline}][18]
+[^30]: https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0
 
 [^31]: based on D2.8 FAIR Semantics Recommendations, Third Iteration, H2020-INFRAEOSC-2018-4, https://doi.org/10.5281/zenodo.667
 
 [^32]: https://www.w3.org/TR/2013/REC-prov-dm-20130430
 
-[^33]: [[https://schema.org/]{.underline}][25]
+[^33]: https://schema.org/
 
-[^34]: [[https://www.ecma-international.org/publications-and-standards/standards/ecma-404/]{.underline}][26]
+[^34]: https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
-[^35]: [[https://www.w3.org/TR/json-ld11/]{.underline}][27]
+[^35]: https://www.w3.org/TR/json-ld11/
 
 [^36]: https://www.w3.org/TR/json-ld11-framing/
 
 [^37]: https://www.w3.org/TR/json-ld11/#keywords
 
-[^38]: Bonino, Guizzardi, Sales 2022 ([[https://fairdigitalobjectframework.org/]{.underline}][24])
+[^38]: Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/)
 
 [^39]: https://schema.org/docs/full.html
 
@@ -744,10 +745,10 @@ Implementation approach to supplying PID Kernel information records associated w
 
 [^45]: https://spdx.org/rdf/terms/
 
-[^46]: https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum\_\_\_-238837136.html
+[^46]: https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html
 
-[^47]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6\_\_q3cuXSQf8/edit#heading=h.z337ya
+[^47]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
 
-[^48]: [https://www.w3.org/TR/dx-prof-conneg/]{.mark}
+[^48]: https://www.w3.org/TR/dx-prof-conneg/
 
  

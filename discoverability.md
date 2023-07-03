@@ -101,8 +101,6 @@ In the Fair Digital Object Framework (FDOF) a Digital Object (DO) is a specific 
 
 ![FDOF-CDIF metadata relations](images/DigitalObjectOverview.png)
 
-https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/DigitalObjectOverview.png
-
 A resource is some identifiable thing of interest to someone; it might be a Digital Object (DO) or a Non-digital Resource. A DO bitstream might be the resource of interest, or it might be a representation of an abstract or physical resource that cannot be transmitted electronically (see HTTP Range-14[^5]). The identifier for a DigitalObject can be dereferenced to access the object directly. A non-digital resource is a material entity (e.g. person, rock sample), an abstract entity (e.g. Donald Duck, The Land of Oz), or a \'Work\' or 'Expression' in the FRBR sense[^6] (e.g. Beethoven's 9th symphony, Dickens' Tale of Two Cities). Identifiers for Non-digital Resources must dereference on the web to a DigitalObject that is a representation of the non-digital thing and can be transmitted electronically.
 
 The diagram below provides a view of the relationship between CDIF metadata and discovery concepts and the Fair Digital Object Framework. In the FDO perspective, a user (especially a machine agent) starts with an identifier (PID) for a digital object (FDOF PID in the diagram), and seeks to understand what it is about, how it is formatted, and what can they do with it. This is done by accessing the FDOFIdentifierRecord (Kernel metadata) and then, if necessary, the full metadata record. From the CDIF discovery perspective, a user (human or machine) searches for resources containing the information they need ('Resource' in the diagram), and subsequently considers whether the digital object(s) containing or representing the resource are useful for their application. The MetadataRecord associated with a Resource provides the information to support discovery and evaluation, and access in this approach.
@@ -127,11 +125,15 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 1.  Each resource has an html landing page that describes the resource for human users, and contains embedded CDIF JSON-LD metadata (See [Appendix 1]()) for machine clients.]{.mark} Metadata can be embedded in landing pages using the HTML \<script\> element, in alignment with the Data on the Web Best Practices, specifically section 8.2, Metadata[^8]. This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the \<head\> section of an HTML document. The \<script\> element has a 'type' attribute that provides a MIME-type specifying the type of script.
 
-![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/JSON-LDscriptInHTML.jpg)
+![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](images/JSON-LDscriptInHTML.jpg)
+
+JSON-LDscriptInHTML
 
 2.  Metadata can be embedded in the HTML \<head\> section of a landing page using HTML \<meta\> elements, which have a 'name' attribute that can be used to identify different metadata properties (see example below). This approach is implemented by some off-the-shelf repository software. The HTML \<meta\> elements are intended to describe the HTML document that contains the \<meta\> element[^9], not some external resource that the web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows much richer metadata content to be included.
 
-![Example D2. HTML meta tags with metadata about a resource.](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/HTMLmetaMetadata.png)
+![Example D2. HTML meta tags with metadata about a resource.](images/HTMLmetaMetadata.png)
+
+HTMLmetaMetadata
 
 3.  Metadata can be linked from the landing page using the HTML \<link\> element in the \<head\> section to provide a web locator (URL) that can be used to retrieve a full metadata document about the described resource. The link element has a 'rel' attribute that can be used to indicate that the link is to metadata, and a 'type' attribute that can provide the MIME type of the target metadata record. This approach depends on web-crawlers identifying and following these links to get the metadata that the provider wants indexed. This is one of the 'signposting' approaches[^10].
 
@@ -161,7 +163,7 @@ Once the harvester has a URL for a location to index, how do they know where the
 
 The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications \-- using different formats or profiles[^18]. The \<script\> 'type' attribute could specify the profile using parameters on the MIME type.
 
-![Example D3. Script type with a type parameter in the MIME type string](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/TypedScriptInHTML.png)
+![Example D3. Script type with a type parameter in the MIME type string](images/TypedScriptInHTML.png)
 
 Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
 
@@ -173,7 +175,7 @@ These recommendations are intended to be applicable for publication of metadata 
 
 Figure D1 (below) is a flow chart showing the recommended decision tree for metadata publishers to determine how to expose their metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
 
-![Figure 2. Decision graph to determine where metadata is located](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/MetadataPublicationWorkflow.png)
+![Figure 2. Decision graph to determine where metadata is located](images/MetadataPublicationWorkflow.png)
 
 
 ### Embedded in HTML

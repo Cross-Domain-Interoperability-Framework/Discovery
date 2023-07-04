@@ -99,11 +99,11 @@ Other properties that should be specified if possible and relevant. All are opti
 
 In the Fair Digital Object Framework (FDOF) a Digital Object (DO) is a specific bit stream that carries some information and has a **persistent, registered, resolvable identifier** (PID) that can be resolved to obtain a PID kernel record providing documentation for the source of the PID, expected lifetime, type of resource it identifies, linkage to the resource it identifies, and other attributes specified in a schema identified in the PID kernel record (PID profile)[^4]. Digital Objects are FAIR (FDOs) when they are part of an ecosystem comprising services and infrastructure to support realization of the FAIR principles. In the Fair Digital Object Framework (FDOF) there must be a mechanism to access either the object or its metadata by dereferencing the object's PID. Metadata content must enable the identified resource to be found, used and cited, enable interoperability and reuse, and include machine-actionable statements about dependencies and licensing.
 
-![FDOF-CDIF metadata relations](images/DigitalObjectOverview.png)
+![FDOF-CDIF metadata relations](images/DigitalObjectOverview.png) Figure 1. FDOF-CDIF metadata relations
 
 A resource is some identifiable thing of interest to someone; it might be a Digital Object (DO) or a Non-digital Resource. A DO bitstream might be the resource of interest, or it might be a representation of an abstract or physical resource that cannot be transmitted electronically (see HTTP Range-14[^5]). The identifier for a DigitalObject can be dereferenced to access the object directly. A non-digital resource is a material entity (e.g. person, rock sample), an abstract entity (e.g. Donald Duck, The Land of Oz), or a \'Work\' or 'Expression' in the FRBR sense[^6] (e.g. Beethoven's 9th symphony, Dickens' Tale of Two Cities). Identifiers for Non-digital Resources must dereference on the web to a DigitalObject that is a representation of the non-digital thing and can be transmitted electronically.
 
-The diagram below provides a view of the relationship between CDIF metadata and discovery concepts and the Fair Digital Object Framework. In the FDO perspective, a user (especially a machine agent) starts with an identifier (PID) for a digital object (FDOF PID in the diagram), and seeks to understand what it is about, how it is formatted, and what can they do with it. This is done by accessing the FDOFIdentifierRecord (Kernel metadata) and then, if necessary, the full metadata record. From the CDIF discovery perspective, a user (human or machine) searches for resources containing the information they need ('Resource' in the diagram), and subsequently considers whether the digital object(s) containing or representing the resource are useful for their application. The MetadataRecord associated with a Resource provides the information to support discovery and evaluation, and access in this approach.
+Figure 1 provides a view of the relationship between CDIF metadata and discovery concepts and the Fair Digital Object Framework. In the FDO perspective, a user (especially a machine agent) starts with an identifier (PID) for a digital object (FDOF PID in the diagram), and seeks to understand what it is about, how it is formatted, and what can they do with it. This is done by accessing the FDOFIdentifierRecord (Kernel metadata) and then, if necessary, the full metadata record. From the CDIF discovery perspective, a user (human or machine) searches for resources containing the information they need ('Resource' in the diagram), and subsequently considers whether the digital object(s) containing or representing the resource are useful for their application. The MetadataRecord associated with a Resource provides the information to support discovery and evaluation, and access in this approach.
 
 The FDOF requires that there is a mechanism to dereference the identifier to get a metadata description of the resource. In CDIF, this metadata will be a CDIF-conformant JSON-LD record (as described below), that includes the metadata required by the FDOF. The CDIF has three approaches to accessing metadata for a resource using its identifier:
 
@@ -125,15 +125,11 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 1.  Each resource has an html landing page that describes the resource for human users, and contains embedded CDIF JSON-LD metadata (See [Appendix 1]()) for machine clients.]{.mark} Metadata can be embedded in landing pages using the HTML \<script\> element, in alignment with the Data on the Web Best Practices, specifically section 8.2, Metadata[^8]. This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the \<head\> section of an HTML document. The \<script\> element has a 'type' attribute that provides a MIME-type specifying the type of script.
 
-![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](images/JSON-LDscriptInHTML.jpg)
-
-JSON-LDscriptInHTML
+![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](images/JSON-LDscriptInHTML.jpg) Example 1. A JSON-LD metadata object embedded as a script in an HTML document.
 
 2.  Metadata can be embedded in the HTML \<head\> section of a landing page using HTML \<meta\> elements, which have a 'name' attribute that can be used to identify different metadata properties (see example below). This approach is implemented by some off-the-shelf repository software. The HTML \<meta\> elements are intended to describe the HTML document that contains the \<meta\> element[^9], not some external resource that the web page is about. CDIF recommends against this approach and suggests using the script approach (No 1 in this list) instead because that is more widely used and allows much richer metadata content to be included.
 
-![Example D2. HTML meta tags with metadata about a resource.](images/HTMLmetaMetadata.png)
-
-HTMLmetaMetadata
+![Example D2. HTML meta tags with metadata about a resource.](images/HTMLmetaMetadata.png) Example 2. HTML meta tags with metadata about a resource.
 
 3.  Metadata can be linked from the landing page using the HTML \<link\> element in the \<head\> section to provide a web locator (URL) that can be used to retrieve a full metadata document about the described resource. The link element has a 'rel' attribute that can be used to indicate that the link is to metadata, and a 'type' attribute that can provide the MIME type of the target metadata record. This approach depends on web-crawlers identifying and following these links to get the metadata that the provider wants indexed. This is one of the 'signposting' approaches[^10].
 
@@ -163,7 +159,8 @@ Once the harvester has a URL for a location to index, how do they know where the
 
 The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications \-- using different formats or profiles[^18]. The \<script\> 'type' attribute could specify the profile using parameters on the MIME type.
 
-![Example D3. Script type with a type parameter in the MIME type string](images/TypedScriptInHTML.png)
+![Example D3. Script type with a type parameter in the MIME type string](images/TypedScriptInHTML.png)  
+*Example 3. Script type with a type parameter in the MIME type string.*
 
 Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
 
@@ -171,12 +168,12 @@ Minimally, the metadata record should assert the specification used to generate 
 
 ## Scope 
 
-These recommendations are intended to be applicable for publication of metadata on the web to support a basic level of discovery interoperability for static resources with or without associated landing pages. Resources accessible via APIs that support functionality beyond simple static resource retrieval, e.g. subsetting, filtering, data transformations, or negotiation transactions related to security or confidentiality, are out of scope. Future work will define levels of conformance for more sophisticated functionality. For the CDIF, we recommend conventions for 1) what conventions ('standards') should be used so that the metadata is machine actionable; 2) how search engines find documents to index; 3) how metadata is incorporated in or accessed from those documents. The content recommendations and implementation outlined in [Appendix 1](#app1) cover the first of these topics. The second and third topics are discussed here.
+These recommendations are intended to be applicable for publication of metadata on the web to support a basic level of discovery interoperability for static resources with or without associated landing pages. Resources accessible via APIs that support functionality beyond simple static resource retrieval, e.g. subsetting, filtering, data transformations, or negotiation transactions related to security or confidentiality, are out of scope. Future work will define levels of conformance for more sophisticated functionality. For the CDIF, we recommend conventions for 1) what conventions ('standards') should be used so that the metadata is machine actionable; 2) how search engines find documents to index; 3) how metadata is incorporated in or accessed from those documents. The content recommendations and implementation outlined in [Appendix 1](#appendix-1) cover the first of these topics. The second and third topics are discussed here.
 
 Figure D1 (below) is a flow chart showing the recommended decision tree for metadata publishers to determine how to expose their metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
 
-![Figure 2. Decision graph to determine where metadata is located](images/MetadataPublicationWorkflow.png)
-
+![Figure 2. Decision graph to determine where metadata is located](images/MetadataPublicationWorkflow.png) 
+*Figure 2. Decision graph to determine where metadata is located. Steps are numbers and referenced in text.*  
 
 ### Embedded in HTML
 
@@ -188,7 +185,7 @@ Starting at the top (1), if there are HTML landing pages that describe the resou
 
 If the resources of interest do not have individual landing pages, or the metadata publisher does not have authority to update the content of landing pages, the metadata should be placed in a web-accessible location (4 in Figure D1 ). There are two common approaches:
 
--   Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialized as JSON-LD (see [Appendix 1](#app1)). MIME type for the metadata file is
+-   Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialized as JSON-LD (see [Appendix 1](#appendix-1)). MIME type for the metadata file is
 
 *type=\"application/ld+json;type=CDIF1.0"*
 
@@ -196,7 +193,7 @@ If the resources of interest do not have individual landing pages, or the metada
 
 ### Metadata list file
 
--   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList]{.mark}[^22][. See example in [Appendix 1](#app1). The MIME type for the collection is:
+-   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList]{.mark}[^22][. See example in [Appendix 1](#appendix-1). The MIME type for the collection is:
 
 *type=\"application/ld+json;type=CDIF-list-1.0"*
 
@@ -216,7 +213,7 @@ In the robots.txt file, use the sitemap directive to provide the URL to the site
 
 *Sitemap: http://www.example.com/sitemap.xml*
 
-Based on these recommendations, metadata generated using the CDIF content and serialization can be found and harvested by agents using standard off the shelf web technology.
+Based on these recommendations, metadata generated using the CDIF content and serialization can be found and harvested by agents using standard off the shelf web technology. Note that at step (5) in the flow, Signposting links (see [Appendix 3](#appendix-3)) could be inserted into landing pages (if they exist), or HTTP response headers if web site administrators allow. This can provide additional values for clients implementing signposting. 
 
 # Definitions:
 
@@ -264,22 +261,21 @@ Definitions in this section follow the conventions outlined in ISO704[^26]. Defi
     > The subject resource was created by transformation of the object resource, update (not revision) of the object resource resulting in a new entity, or the construction of a new entity based on the object resource. (based on PROV-DM[^32])
 
 -   specializationOf\
-    > The subject resource shares all aspects of the the object resource, and additionally presents more specific aspects, e.g. restrictions on property ranges, additional properties.(based on PROV-DM[^32])
+    > The subject resource shares all aspects of the the object resource, and additionally presents more specific aspects, e.g. restrictions on property ranges, additional properties.(based on PROV-DM)
 
 -   wasRevisionOf\
-    > The subject resource is a version of the object resource that has been corrected or improved in some way. (based on PROV-DM[^32])
+    > The subject resource is a version of the object resource that has been corrected or improved in some way. (based on PROV-DM)
 
 -   hadPrimarySource\
-    > The subject resource was produced with information from some agent (the object resource) having direct experience and knowledge about the topic of the subject resource.(based on PROV-DM[^32])
+    > The subject resource was produced with information from some agent (the object resource) having direct experience and knowledge about the topic of the subject resource.(based on PROV-DM)
 
 -   wasQuotedFrom\
-    > Some or all of the object resource is copied in the subject resource by someone who may or may not be its original author. (based on PROV-DM[^32])
+    > Some or all of the object resource is copied in the subject resource by someone who may or may not be its original author. (based on PROV-DM)
 
 -   alternateOf\
-    > The subject resource presents the same content as the object resource in a different expression or manifestation. (based on PROV-DM[^32])
+    > The subject resource presents the same content as the object resource in a different expression or manifestation. (based on PROV-DM)
 
 # Appendix 1
-<a name="app1" /a>
 
 # Serialization of CDIF metadata 
 
@@ -414,7 +410,7 @@ The following table maps the metadata content items described in the [Metadata C
 |    |  | /\"about\"/\"temporalCoverage\": <br> \[{ \"@type\":\"time:ProperInterval\", <br> \"time:intervalStartedBy\": \"isc:LowerDevonian, <br>  \"time:intervalFinishedBy\": \"isc:LowerPermian\"  }\]             | Time ordinal era interval, use owl:time namespace, time: http://www.w3.org/2006/time#. This example uses [International chronostratigraphic chart, isc](http://resource.geosciml.org/classifier/ics/ischart/). See https://perio.do/en/ for identifiers for many other named time intervals.   |
 | Other related agents- simple contributor        | 0..\*    | /\"about\"/"contributor": \[ {Person or Organization}, \... \]        | Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators.    |
 | related agent with role | | /\"about\"/"contributor": {"@type": "Role", <br> "roleName": "Principal Investigator",<br>"contributor": {"@type": "Person",<br>	"@id": "https://orcid.org/...",<br>	"name": "John Doe",<br>	"affiliation": {"@type": "Organization",<br>		"@id": "https://ror.org/...",<br>		"name": "..."	},<br>	"contactPoint": {"@type": "ContactPoint",<br>		"email": "john.chodacki@ucop.edu"<br>	}  }   } |  To assign roles to contributors like editor, maintainer, publisher, point of contact, copyright holder  (e.g.  DataCite contributor types), use the rather convoluted [role construction defined by schema.org](http://blog.schema.org/2014/06/introducing-role.html) |
-| Related resources           | 0..\*    | /"about"/"relatedLink": \[{"@type":"LinkRole", "linkRelationship": "...",<br>"target: {"@type": "EntryPoint", <br> "encodingType": "text/html",<br>"name": "...",<br>"url": "https://example.org/data/stations" } } \]  | Use schema.org relatedLink with a LinkRole value, and the link URL in a 'target' EntryPoint object. These properties expect WebPage and Action as their domain, so the schema.org validator will throw a warning (not an error). Related resource links are useful for evaluation and use of data, but because of the wide variety of relationship possibilities, difficult to use in general search scenarios. Use a soft-type implementation, with a link relationship type using a schema:DefinedTerm, and a resolvable identifier for the relationship target.   |
+| Related resources           | 0..\*    | /"about"/"relatedLink": \[{"@type":"LinkRole", "linkRelationship": "...",<br>"target: {"@type": "EntryPoint", <br> "encodingType": "text/html",<br>"name": "...",<br>"url": "https://example.org/data/stations" } } \]  | Use schema.org relatedLink with a LinkRole value, and the link URL in a 'target' EntryPoint object. These properties expect WebPage and Action as their domain, so the schema.org validator[^44] will throw a warning (not an error). Related resource links are useful for evaluation and use of data, but because of the wide variety of relationship possibilities, difficult to use in general search scenarios. Use a soft-type implementation, with a link relationship type using a schema:DefinedTerm, and a resolvable identifier for the relationship target.   |
 | Funding                     | 0..\*    | /"about"/"funding" :<br> { \"@id\": \"URI for grant\", <br> \"@type\": \"MonetaryGrant\",<br> \"identifier\": \"grant id\",  <br> \"name\": \"grant title\", <br> \"funder\":<br> { \"@id\": \"ror for org\", <br> \"@type\": \"Organization\", <br>  \"name\": \"org name\",  <br> \"identifier\": \[    \"other identifiers\" \] } }     | Use schema.org encoding and science on schema.org pattern[^45] . Other organization properties can be included in the funder/Organization .    |
 | Policies                    | 0..\*    | \"publishingPrinciples\": \[  {\"@type\": \"CreativeWork\"}\....  \]     | FDOF digitalObjectMutability, RDA digitalObjectPolicy, FDOF PersistencyPolicy. Policies related to maintenance, update, expected time to live.    |
 | Checksum                    | 0..1     | /\"about\"/\"spdx:checksum\" or /\"about\"/\"distribution\": \[ { \"@type\": \"DataDownload\",    \"spdx:checksum\": {URL },..    }\...\]    | A string value calculated from the content of the resource representation, used to test if content has been modified. No schema.org property, follow DCAT v3 adoption of Software Package Data Exchange (SPDX)[^46] property; The spdx Checksum object has two properties[^47]: algorithm and checksumValue. If the resource is a single DigitalObject, use the first partter, if there are multiple distributions, the checksum is a property of each distribution/DataDownload. |
@@ -632,14 +628,14 @@ This is and example file containing multiple records for harvesting, using the s
 
 ## Mapping from CDIF metadata to RDA PID Kernel attributes
 
-Implementation approach to supplying PID Kernel information records associated with digital object identifiers in the CDIF framework is an architecture decision \[TBD\], but the information necessary to produce such metadata is all included in the CDIF metadata implementation, except for embedding of thumbnails or other data objects directly in the metadata digital object.
+In the Fair Digital Object Framework (FDOF) specifies that a Digital Object idnetifier (PID) can be resolved to obtain a PID kernel record. For the content of the PID kernel record we are following the RDA Recommendation on PID Kernel Information (Weigel et al, 2019[^48]). The implementation approach for supplying PID Kernel information records[^49] associated with digital object identifiers is an architecture decision, not specified in this version of the CDIF framework. However, the information necessary to produce such metadata to implement the FDOF conventions is included in the CDIF metadata implementation, except for embedding of thumbnails or other data objects directly in the metadata digital object.
 
 
 | **FDO field** | **CDIF schema.org** | **Scope Notes** |
 | --- | --- | --- |
 | <font size="3">FDO Creator</font> | "creator" : [{Person or Organization}, ...] | Agent responsible for creating the FDO (and implicitly issuing the FDO PID) [NOTE-- creator of content and identifier registration are not necessarily the same agent] |
 | FDO Responsible Organisation (Resource) | "provider":{Person or Organization} | note that this can be another organisation than the PID issuer. If the agent is an organization, the value is taken from the ROR registry value domain (or other with namespace id). Implement as responsible part with an Agent (name, ID, contactInformation)  |
-| RDA checksum | "spdx:checksum": | Checksum of object contents. Checksum format is determined via the attribute type referenced in a Kernel Information record. Called etag in PubCom-PR-PIDProfileAttributes-2.0 [^48]. The algorithm for checksum calculation should be defined in the definition of the object type, or described in the resource description in this metadata. spdx value is an object with 'algorthm' and 'checksumValue'. |
+| RDA checksum | "spdx:checksum": | Checksum of object contents. Checksum format is determined via the attribute type referenced in a Kernel Information record. Called etag in PubCom-PR-PIDProfileAttributes-2.0 [^50]. The algorithm for checksum calculation should be defined in the definition of the object type, or described in the resource description in this metadata. spdx value is an object with 'algorthm' and 'checksumValue'. |
 | FDOF digitalObject-Mutability | /"about"/"publishingPrinciples": | This attribute indicates whether the included bit-sequence is mutable or immutable, and policies for when new version is created when some bits are changed.  Principles apply at the DigitalObject/Distribution level.|
 | FDOF Persistency-Policy | /"about"/"publishingPrinciples": | this attribute indicates what the intention of its creator is with respect to its life-time/maintenance; the value domain is a vocabulary like: {UNKNOWN, NONE, Years , or [EarthCube ELT](http://cor.esipfed.org/ont/earthcube/ELT) } (note: seems only partly covered by RDA digitalObjectPolicy.   |
 | RDA digitalObject-Policy | /"about"/"publishingPrinciples": | Pointer to a policy object that documents changes to the object or its Kernel Information record, including object access and modification policies. A caller should be able to determine the expected future changes to the object from the policy, which are based on managed processes the object owner maintains. |
@@ -647,7 +643,7 @@ Implementation approach to supplying PID Kernel information records associated w
 | FDOF rightsRecord | /"about"//"license":{text or URI}Or/"about"//"conditionsOfAccess":{text or URI} | This is a pointer to a resource that specifies access permissions. Include: FDOF licenceConditions: that links to one or more formal specifications about licences such as CC-x; FDOF transactionRecord: a resource that includes contractual information. |
 | FDOF ScientificDomain | /"about"/"keywords":[{string} or schema:DefinedTerm] | indicator of the scientific domain the FDO refers to. This ensures compliance with the FAIR principles, which are per definition applicable at the domain level. This attribute is required since different mandatory attributes may be required at the domain-level. |
 | Profile | / "dcterms:conformsTo": {identifier} | The Kernel metadata profile is a schema that determines the attribute requirements for FDO metadata beyond the base requirements. In the FDO world, the kernel profile specifies Kernel information about the resource associated with an identifier. Schema.org does not have a 'conformTo' property so follow DCAT v3 using the Dublin Core Terms property. |
-| FDOF digitalObjectType | /"about"/"@type":{schema.org type} | The kind of resource associated with an identifier. The type implies a schema that dictates the format, information model, and profile conventions for the resource representation contained in the identified digital object. Use appropriate Schema.org type for \@ type property, the additional type should be from a controlled vocabulary. |
+| FDOF digitalObjectType | /"about"/"@type":{schema.org type} | The kind of resource associated with an identifier. The type implies a schema that dictates the format, information model, and profile conventions for the resource representation contained in the identified digital object. Use appropriate Schema.org type for \@type property, the additional type should be from a controlled vocabulary. |
 | | /"about"/"additionalType":[{schema:DefinedTerm or URI}, ...] | Expect to use a CDIF recommended vocabulary here |
 | RDA dateCreated | /"about"/"datePublished": {date time} | Date (and optional time) the Digital object was created|
 | RDA dateModified | /"about"/"dateModified" : {date time} | If the DO bit sequence is mutable, specify the last date/time of object modification. Must be consistent with etag and current version number. |
@@ -658,6 +654,8 @@ Implementation approach to supplying PID Kernel information records associated w
 # Appendix 3
 
 ## Mapping from Signposting relations to CDIF metadata elements
+
+The Signposting approach embeds links in HTML pages or in the HTTP header that is included in the response to HTTP GET or HEAD requests. These links provide some basic metadata information, as well as links to more complete metadata, possibly in various formats or profiles[^51]. Given an identifer that can be derferenced using a server that implements signposting, an agent can obtain some information about the resource(s) that can be accessed by dereferencing the identifier. If a provider has generated CDIF metadata records, they hae sufficient information to generate signposting links. If they can add HTML <link> elements in landing pages, or HTTP <link> elements in the server GET and HEAD responses, then implementing signposting is an easy win, providing value for some users. The table below show the mapping from CDIF metadata elements to the targets for signposting links with each REL types. 
 
 Signposting Relation Type | CDIF schema.org element | Description | 
 ------------------ | -------------------- | ----------------- | 
@@ -769,7 +767,11 @@ Signposting Relation Type | CDIF schema.org element | Description |
 
 [^47]: https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html
 
-[^48]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
+[^48]: https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf
 
+[^49] See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/
 
+[^50]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
+
+[^51]: https://signposting.org/FAIR/#level1
 

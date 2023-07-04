@@ -1,0 +1,54 @@
+{
+    "@context": [
+        "https://schema.org",
+        {"dct": "http://purl.org/dc/terms/"}
+    ],
+    "@id": "metadata:ark:/99152/URIforTheDigitalObjectMetadata",
+    "@type": "DigitalDocument",
+    "description": "metadata record about a DigitalObject.",
+    "producer": {
+        "@type": "Person",
+        "@id": "https://orcid.org/identifierForMetadataProducer",
+        "name": "metadata creator/editor name",
+        "description": "this is who created the metadata; should use schema.org role pattern (TBD)"
+    },
+    "dateModified": "2014-02-23",
+    "encoding": {
+        "@type": "MediaObject",
+        "description": "this is about the encoding of the metadata in this metadata record (a digitalObject...).",
+        "sha256": "513...37l",
+        "contentSize": 687,
+        "encodingFormat": "application/ld+json (base mime type)",
+        "dct:conformsTo": "https://example.org/cdif-metadataSpec"
+    },
+    "about": {
+        "@id": "ark:/99152/URIforTheDigitalObject",
+        "@type": "DigitalDocument",
+        "encoding": {
+            "@type": "MediaObject",
+            "description": "could used one of the subclasses of schema:MediaObject, which include: 3DModel, AmpStory, AudioObject, DataDownload, ImageObject, LegislationObject, MusicVideoObject,VideoObject.  For our purposed, interpret 'DigitalDocuement' to be a match for 'DigitalObject', without all the protocol and dereference denotations associated with FDOF",
+            "encodingFormat": "image/png (base mime type)",
+            "dct:conformsTo": [
+                "https://example.org/profileForThisDigitalObject (if these is a profile...)",
+                "https://fdof.org/fdofprofile"
+            ]
+        },
+        "url":"https://example.org/locatortoGETtheDigitalObject",
+        "identifier": {
+            "@type": "PropertyValue",
+            "description": "this is redundant with @id, but makes identification of the described dataset explicit",
+            "propertyID": "https://registry.identifiers.org/registry/ark",
+            "value": "ark:/99152/URIforTheDigitalObject",
+            "url": "https://n2t.net/ark:/99152/URIforTheDigitalObject"
+        },
+        "publishingPrinciples": [
+            {
+                "@type": "CreativeWork",
+                "url": "https://example.org/id/policy",
+                "name": "Digital Object Policy",
+                "description": "a description the editorial principles of the publisher of this digitalObject, e.g. ethics or diversity policies.  "
+            }
+        ],
+        "dateModified": "2010-02-03"
+    }
+}

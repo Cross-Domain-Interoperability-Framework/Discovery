@@ -1,0 +1,148 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "@id": "https://doi.org/10.5878/tnzz-m331",
+    "identifier": "https://doi.org/10.5878/tnzz-m331",
+    "version": "4",
+    "name": "Dataset for SOU 2023:18 The Wind's Value - Compensation, Incentives and Planning for a Continued Sustainable Wind Power Development",
+    "description": "The study is a Governmental ....",
+    "creator": [
+        {
+            "@type": "Organization",
+            "@id": "https://snd.gu.se/catalogue/search/M_2022:03",
+            "name": "M 2022:03 Stronger Local Incentives for Wind Power"
+        },
+        {
+            "@type": "Person",
+            "name": "Ulrika Liljeberg",
+            "email": "liljebergulrika@gmail.com",
+            "affiliation":  {"@id":"https://snd.gu.se/catalogue/search/M_2022:03"}
+        },
+        {
+            "@type": "Person",
+            "name": "Mattias Schain",
+            "email": "mattias@schain.se",
+            "affiliation": {"@id":"https://snd.gu.se/catalogue/search/M_2022:03"}
+        },
+        {
+            "@type": "Person",
+            "name": "Kristina Forsbacka",
+            "email": "kristina.forsbacka@hotmail.com",
+            "affiliation": {"@id":"https://snd.gu.se/catalogue/search/M_2022:03"}
+        }
+    ],
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "Swedish National Data Service",
+        "url": "https://snd.gu.se/catalogue/"
+    },
+    "license": {
+        "@type": "CreativeWork",
+        "name": "freelyAccessible",
+        "url": "https://snd.gu.se/en/search-and-order-data/using-data"
+    },
+    "inLanguage": {
+        "@type": "Language",
+        "name": "Swedish"
+    },
+    "keywords": [
+        {
+            "@value": "Social Sciences",
+            "@language": "en"
+        },
+        {
+            "@value": "Samhällsvetenskap",
+            "@language": "sv"
+        },
+        {
+            "@value": "energy policy",
+            "@language": "en"
+        }
+    ],
+    "funder": [
+        {
+            "@type": "Organization",
+            "@id": "https://ror.org/04gey0774",
+            "name": "The Government of Sweden"
+        }
+    ],
+    "spatial": [
+        {
+            "@type": "Place",
+            "name": "Sweden",
+            "@id": "http://sws.geonames.org/2661886"
+        },
+
+        {
+            "@type": "Place",
+            "name": [
+                {
+                    "@value": "Europe",
+                    "@language": "en"
+                },
+                {
+                    "@value": "Europa",
+                    "@language": "sv"
+                }
+            ]
+        }
+    ],
+    "datePublished": "2023-06-21T11:37:06Z",
+    "dateModified": "2023-06-21T11:37:06Z",
+    "temporalCoverage": "2020/2022",
+    "conditionsOfAccess": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://snd.gu.se",
+        "name": "Swedish National Data Service"
+    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "name": "ID 006 - Vero, Beskattning av vind- och solkraftverk Norge.pdf",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+006+-+Vero%2C+Beskattning+av+vind-+och+solkraftverk+Norge.pdf",
+            "contentSize": 356791,
+            "encodingFormat": "application/pdf",
+            "isAccessibleForFree": true
+        },
+        {
+            "@type": "DataDownload",
+            "name": "ID 042 - Nye regler om stigning i grundskylden p...pdf",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+042+-+Nye+regler+om+stigning+i+grundskylden+p...pdf",
+            "contentSize": 739978,
+            "encodingFormat": "application/pdf",
+            "isAccessibleForFree": true
+        },
+        {
+            "@type": "DataDownload",
+            "name": "ID 043 - Beräkningsbilaga till Bilaga 6 - Nordisk jämförelse.xlsx",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+043+-+Ber%C3%A4kningsbilaga+till+Bilaga+6+-+Nordisk+j%C3%A4mf%C3%B6relse.xlsx",
+            "contentSize": 49239,
+            "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "isAccessibleForFree": true
+        },
+        {
+            "@type": "DataDownload",
+            "name": "ID 104 - Film #4 - Finansieringsvillkor för lokalsamhället.mp4",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=ID+104+-+Film+%234+-+Finansieringsvillkor+f%C3%B6r+lokalsamh%C3%A4llet.mp4",
+            "contentSize": 23575981,
+            "encodingFormat": "video/mp4",
+            "isAccessibleForFree": true
+        },
+        {
+            "@type": "DataDownload",
+            "name": "Beskrivning av dataset i utredningens öppna arkiv (readme).docx",
+            "contentUrl": "https://snd.gu.se/en/catalogue/download/dataset/2023-69-1/4?filename=Beskrivning+av+dataset+i+utredningens+o%CC%88ppna+arkiv+%28readme%29.docx&amp;isDoc=y",
+            "contentSize": 78557,
+            "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "isAccessibleForFree": true
+        }
+    ],
+    "creativeWorkStatus": {
+        "@type": "DefinedTerm",
+        "termCode": "COMPLETED",
+        "inDefinedTermSet": "http://publications.europa.eu/resource/authority/dataset-status",
+        "name":  "completed"
+    },
+    "isAccessibleForFree": true
+}

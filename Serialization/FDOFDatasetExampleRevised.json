@@ -1,0 +1,108 @@
+{
+    "@context": [
+        "https://schema.org",
+        {"dcterms": "http://purl.org/dc/terms/",
+        "dcat":"https://www.w3.org/TR/vocab-dcat-2/#",
+        "ex":"http://www.example.com/"}
+    ],
+    "@id": "metadata:ark:/99152/URIforTheMetadataRecord",
+    "@type": "DigitalDocument",
+    "description": "NOTES on the metadata in the the about section (below): ,  conformsTo on the Dataset specifies the information model that underlies the data; note that if the described resource is  a digitalObject (not a a physical object or abstract object with one or more representations implemetned as digitalObjects), then the resource metadata should include a URL that gets the object.  conformsTo in a DataDownload specifies the profile for the download-- access protocols, serialization scheme, vocabularies used, other conventions necessary to enable machine processing of the download",
+    "maintainer": {
+        "@type": "Person",
+        "@id": "https://orcid.org/identifierForMetadataProducer",
+        "name": "metadata creator-editor-steward name",
+        "description": "this is who is responsible for the metadata; "
+    },
+    "dateModified": "2014-02-23",
+    "encoding": {
+        "@type": "MediaObject",
+        "description": "this is about the encoding of the metadata in this metadata record (a digitalObject...).",
+        "sha256": "513...37l",
+        "contentSize": 687,
+        "dct:conformsTo": "https://example.org/cdif-metadataSpec"
+    },
+    "about": {
+        "@id": "ark:/99152/URIforTheDataset",
+        "@type": "Dataset",
+        "dcterms:conformsTo": "ex:ConceptualModelForDatasetSpecification",
+        "identifier": {
+            "@type": "PropertyValue",
+            "description": "this is redundant with @id, but makes identification of the described dataset explicit",
+            "propertyID": "https://registry.identifiers.org/registry/ark",
+            "value": "ark:/99152/63v4yo3eeqepj0",
+            "url": "https://n2t.net/ark:/99152/63v4yo3eeqepj0"
+        },
+        "publishingPrinciples": [
+            {
+                "@type": "CreativeWork",
+                "url": "https://example.org/id/policy",
+                "name": "Digital Object Policy",
+                "description": "a description the editorial principles of the publisher of this dataset, e.g. ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle) the principles are those of the party primarily responsible for the creation of the CreativeWork. "
+            }
+        ],
+        "distribution": [
+            {
+                "@type": "DataDownload",
+                "contentURL": "https://example.org/datasets/1234567890.csv",
+                "description": "A comma delimited text distribution of the data following csv on teh web W3C conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
+                "sha256": "666...123",
+                "contentSize": "12345 kb",
+                "encodingFormat": "text/csv (base mime type)",
+                "dct:conformsTo": [
+                    "https://example.org/dataonthewebcsvprofile",
+                    "https://fdof.org/fdofprofile"
+                ]
+            },
+            {
+                "@type": "DataDownload",
+                "contentURL": "https://example.org/datasets/1234567890.rdb",
+                "description": "A comma delimited text distribution of the data using USGS RDB conventions (a digitalObject...). We do not consider the URL that locates this particular digitalObject as the identifier for the object, so this DataDownload is a blank node. ",
+                "sha256": "533...77l",
+                "contentSize": "11256 kb",
+                "encodingFormat": "text/csv (base mime type)",
+                "dct:conformsTo": [
+                    "https://example.org/usgsRDBprofile",
+                    "https://fdof.org/fdofprofile"
+                ]
+            }
+        ],
+        "dateModified": "2010-02-03",
+        "relatedLink": [
+            {"@id":"ex:link1",
+                "@type": ["LinkRole"],
+                "name":"Yokohama Restaurant, Japanese menu",
+                "url": "http://www.restaurants.com/Reserve-JP",
+                "inLanguage": "jp",
+                "linkRelationship": "alternate"
+            },
+            {"@id":"ex:link2",
+                "@type": [
+                    "LinkRole",
+                    "Action"
+                ],
+                "target": {
+                    "@type": "EntryPoint",
+                    "url": "https://example.org/publications/report.pdf",
+                    "encodingType": "application/pdf",
+                    "contentType": "Project report"
+                },
+                "inLanguage": "en",
+                "linkRelationship": "IsDocumentedBy"
+            }
+        ],
+        "dcat:qualifiedRelation":[
+            {"@id":"ex:relation1",
+                "@type": "dcat:Relationship",
+                "dcterms:relation":"https://example.org/publications/report.pdf",
+                "dcat:hadRole":"https://www.iana.org/assignments/link-relations/IsDocumentedBy"
+                
+            },
+            {"@id":"ex:relation1",
+                "@type": "dcat:Relationship",
+                "dcterms:relation": "http://www.example.com/Reserve-JP",
+                "dcat:hadRole":"https://www.iana.org/assignments/link-relations/alternate"
+             }
+        ]
+    }
+}

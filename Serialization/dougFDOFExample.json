@@ -1,0 +1,31 @@
+{
+	"@context": [
+        "https://schema.org",
+        {"dct": "http://purl.org/dc/terms/"}
+    ],
+	"@id":"https://example.org/id/xyz",
+	"@type":"DigitalDocument",
+	"dct:conformsTo":"https://example.org/cdifspec",
+	"producer":"mdf",
+	"identifier": {
+	    "@type":"PropertyValue",
+	    "propertyID":"https://registry.identifiers.org/registry/ark",
+	    "value":"ark:/99152/63v4yo3eeqepj0",
+	    "url":"https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/63v4yo3eeqepj0"	    
+	},
+	"publishingPrinciples":[
+	    {
+	        "@type":"CreativeWork",
+	        "url":"https://example.org/id/policy",
+	        "name":"Digital Object Policy",
+	        "description":"A description of the digital object policy"
+	        }
+	],
+	"encoding": {
+	    "@type": "MediaObject",
+	    "sha256": "513...37l",
+	    "contentSize":687
+	},
+	"distribution":"https://example.org/datasets/1234567890",
+	"dateModified":"2010-02-03"
+}

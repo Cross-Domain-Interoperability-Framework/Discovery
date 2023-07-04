@@ -75,19 +75,18 @@
                 "@id": "ex:link1",
                 "@type": ["LinkRole"],
                 "name": "Yokohama Restaurant, Japanese menu",
+                "description":"Principle investigator's favorite restaurant",
                 "url": "http://www.restaurants.com/Reserve-JP",
                 "inLanguage": "jp",
                 "linkRelationship": "alternate"
             },
             {
                 "@id": "ex:link2",
-                "@type": [
-                    "LinkRole",
-                    "Action"
-                ],
+                "@type": [ "LinkRole"],
                 "target": {
                     "@type": "EntryPoint",
-                    "url": "https://example.org/publications/report.pdf",
+                    "url": "https://reasearch.org/publications/report4368.pdf",
+                    "name":"Project 4368 Final Report",
                     "encodingType": "application/pdf",
                     "contentType": "Project report"
                 },
@@ -103,7 +102,7 @@
                 "dcat:hadRole": "https://www.iana.org/assignments/link-relations/IsDocumentedBy"
             },
             {
-                "@id": "ex:relation1",
+                "@id": "ex:relation2",
                 "@type": "dcat:Relationship",
                 "dcterms:relation": "http://www.example.com/Reserve-JP",
                 "dcat:hadRole": "https://www.iana.org/assignments/link-relations/alternate"

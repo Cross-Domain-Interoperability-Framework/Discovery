@@ -655,6 +655,20 @@ Implementation approach to supplying PID Kernel information records associated w
 | RDA digitalObjectLocation | /"about"/"url":{URL} | If the FDO has a digital representation, it is mandatory that the PID record specifies the location where the FDO can be retrieved, either as an URL or a PID. This is URL in a metadata record for which the target resource is a digital object, or the contentURL or accessURL if the target resource is a non-digital object with one or more distribution representations. Since FDO PID identifies a digital object, there is only one distribution,so use the simple schema:url. |
 | FDOF operationInfo | Not implemented by CDIF v1.0 | Some communities want to include a payload information such as a thumbnail image in the case of DiSSCo's Digital Enhanced Specimen FDO. |
 
+# Appendix 3
+
+## Mapping from Signposting relations to CDIF metadata elements
+
+Signposting Relation Type | CDIF schema.org element | Description | 
+------------------ | -------------------- | ----------------- | 
+ |author | /"about"/"creator"/"@id" | The target of the link is a URI for an author of the resource that is the origin of the link. | 
+ |cite-as | /"about"/"@id" | The target of the link is a persistent URI for the resource that is the origin of the link. | 
+ |describedby | /"about"/"subjectOf"/"@id" | The target of the link provides metadata that describes the resource that is the origin of the link. | 
+ |describes | /"about"/"@id" | The origin of the link is a resource that provides metadata that describes the resource that is the target of the link. It is the inverse of the describedby relation type. | 
+ |type | /"about"/"@type": {schema.org type}; use "additionalType" for more specific typing | The target of the link is the URI for a class of resources to which the resource that is the origin of the link belongs. | 
+ |license | /"about"/"license"/"@id" | The target of the link is the URI of a license that applies to the resource that is the origin of the link. | 
+ |item | /"about"/"relatedLink"/ /{"linkRelationship": "hasPart",<br>"target": {<br>"url":"http://someurl...", <br>"contentType": "resource type of the item"}} | The origin of the link is a collection of resources and the target of the link is a resource that belongs to that collection. It is the inverse of the collection relation type. In CDIF, contentType and encodingType properties can provide details about the kind of linked collection item. | 
+ |collection | /"about"/"relatedLink"/ / {"linkRelationship": "IsPartOf", <br>"target": {<br> "url":"http:someURL.."<br> "contentType": "Collection"}} | The origin of the link is a resource that belongs to a collection and the target of the link is the collection to which it belongs. It is the inverse of the item relation type. In CDIF, the target name and description (not in example to left) can provide additional information about collection. | 
 
 
 # Footnotes

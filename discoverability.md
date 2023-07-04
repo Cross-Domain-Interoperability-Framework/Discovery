@@ -113,7 +113,7 @@ The FDOF requires that there is a mechanism to dereference the identifier to get
 
 3.  If the identifier dereferences to get a DigitalObject that is the identified resource or a representation of a non-digital resource, a link to the CDIF metadata record must be included as a \<link\> parameter in the HTTP response header.
 
-The CDIF metadata requirements outlined above include properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure , below) as recommended by the Research Data Alliance (RDA)[^7]. The mapping from the PID Kernel information record to the CDIF metadata schema.org recommended implementation is shown in Appendix 2.
+The CDIF metadata requirements outlined above include properties necessary to create a FDO PID Kernel information record (FDOFIdentificationRecord in Figure , above) as recommended by the Research Data Alliance (RDA)[^7]. The mapping from the PID Kernel information record to the CDIF metadata schema.org recommended implementation is shown in Appendix 2.
 
 ## <a name="impapp" a/> Implementation approaches
 

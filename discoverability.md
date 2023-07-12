@@ -53,6 +53,8 @@ Content elements for which every resource should have useful information, but fo
 
 > o **Distribution Agent** (**1 entry**):The party (name of organization or person, etc.) to contact about accessing the resource. Agent object includes a name (label), identifier, and optional contact information. If there are multiple distribution options with different contact points, the Distribution Agent should be specified as part of the Distribution Object.
 
+> o **Variable measured** (**0 to many entries**): Only applicable to datasets.  A complete description of a dataset should include a list of the fields in the data, with each field mapped to a variable that is represented by the content of that field. Variable definitions should minimally specify the property represented by name. Identification of the property represented with a resolvable URI is strongly recommended. Details of data structure and schema are discussed elsewhere the CDIF document portfolio because they are more closely related to interoperability and usage that to data discovery. 
+
 > o **Temporalcoverage** (**0 or 1 entry**). The time period represented by the described resource. This could be the time interval when data were collected, or an archaeological or geological time period that is the subject of the resource. Need to account for clock time, calendar time (Gregorian, Julian, Hebrew, Islamic, Chinese, Mayan\...), cyclical time (summer, first quarter, mating season, new moon, pay day) and for named time ordinal eras (Jurassic, Younger Dryas, Early Minoan I, Late Stone Age). See OWL Time.
 >
 > o **Geographic Extent - Horizontal** (**if applicable,  1 entry, minimum bounding rectangle or point**): Location coordinates must be given in decimal degrees using the [WGS 84] datum. Some resources may not be usefully described by a WGS 84 extent, in which case indicate nil:notapplicable; this would include extraterrestrial resources.
@@ -90,8 +92,6 @@ Other properties that should be specified if possible and relevant. All are opti
 -   **Other related agents** (**0 to many entries**): Recognition for others who have contributed to the production of the resource but are not recognized as authors/creators. Includes a variety of roles like editor, maintainer, publisher, point of contact, copyright holder, contributor (see DataCite contributor types)
 
 -   **Related resources** (**0 to many entries**): Links to related data, publications, annotation, data sources, software used, etc. Links have a label, relationship type, and target resource identifier.
-
--   **Variable measured** (**0 to many entries**): A complete description of a dataset should include a list of the fields in the data, with each field mapped to a variable that is represented by the content of that field. Variable definitions should minimally specify the property represented. Details of data structure and schema are discussed elsewhere this document because they are more closely related to interoperability and usage that to data discovery. Only applicable to datasets.
 
 -   **Version** (**0 or 1**): If the resource is versioned, specify the label for this version. Version labels should follow a scheme that allows alphanumeric sorting in the correct order.
 
@@ -151,7 +151,7 @@ Once the harvester has a URL for a location to index, how do they know where the
 
 -   Metadata is embedded in the html of a web page as a script, type. NOTE: CDIF needs to define a MIME type or other id string to identify metadata serialized with CDIF JSON-LD
 
--   Labeled links that will get the metadata are embedded in the HTML \<head\>. The link should include the [IANA Link header](https://www.iana.org/assignments/link-relations/link-relations.xhtml) relations 'described by', and 'profile'.
+-   Labeled links that will get the metadata are embedded in the HTML \<head\>. The link should include the [IANA Link header](https://www.iana.org/assignments/link-relations/link-relations.xhtml) relation 'describedby', with a 'type' attribute specifying the metadata file MIME type, and an extension target attribute 'profile' that identifies the specific metadata profile for the target resource (if applicable). 
 
 -   Server provides link elements in HTTP headers.
 
@@ -677,9 +677,7 @@ Signposting Relation Type | CDIF schema.org element | Description |
 
 [^3]: https://docs.google.com/spreadsheets/d/1wFuJ4RRlNirnrPfuY_d57I9_pnaNibw4nltNTkruSp0/edit?usp=drive_link
 
-[^4]: https://b2share.eudat.eu,
-
-    https://doi.org/10.23728/B2SHARE.2317B12321764F669C92EBBCF7518164
+[^4]: https://b2share.eudat.eu, https://doi.org/10.23728/B2SHARE.2317B12321764F669C92EBBCF7518164
 
 [^5]: https://en.wikipedia.org/wiki/HTTPRange-14
 
@@ -769,7 +767,7 @@ Signposting Relation Type | CDIF schema.org element | Description |
 
 [^48]: https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf
 
-[^49] See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/
+[^49]: See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/
 
 [^50]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
 

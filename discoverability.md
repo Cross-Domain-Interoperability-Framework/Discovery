@@ -79,7 +79,7 @@ These elements provide essential information for the operation of a distributed 
 
 Other properties that should be specified if possible and relevant. All are optional.
 
--   **Checksum.** (**0 or 1**): A string value calculated from the content of a digital object that allows verification that the content of the object has not been modified. Even small changes to the content of the file will change its checksum. The algorithm used to calculate the checksum must be documented. See also rfc6920 'Naming things with hashes' that establishes ways to identify checksum algorithms and to represent checksum values as a URI. Note that checksums apply to specific digital objects, typically a unique resource representation. Non-digital resources do not have checksums; their representations can have checksums. See implementation notes in Appendix 1.
+-   **Checksum.** (**0 or 1**): A string value calculated from the content of a digital object that allows verification that the content of the object has not been modified. Even small changes to the content of the file will change its checksum. The algorithm used to calculate the checksum must be documented. See also rfc6920 'Naming things with hashes' that establishes ways to identify checksum algorithms and to represent checksum values as a URI. Note that checksums apply to specific digital objects, typically a unique resource representation. Non-digital resources do not have checksums; their representations can have checksums. See implementation notes in [Appendix 1](#appendix-1).
 
 -   **Funding.** (**0 to many entries**): Cite funding sources (Grants, contracts\...). Each source has a grant or contract identifier, source organization, and label.
 
@@ -105,7 +105,7 @@ A resource is some identifiable thing of interest to someone; it might be a Digi
 
 # Signposting
 
-Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the Fair Digital Object framework, it starts with an identifier that can be resolved, and uses typed web links [IEFT RFC8288](https://datatracker.ietf.org/doc/html/rfc8288) and [IANA registered relationship](https://www.iana.org/assignments/link-relations/link-relations.xhtml) types to enable an agent to quickly see what is identified and navigate to metadata with more inforamtion. As is outlined in [van de Sompel, 2021](https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue), these signposting links can implement the linking requirments of the Fair Digital Object Framework. 
+Signposting is an approach to discovering the content and capabilities of resources accessed by resolving URIs on the Web. Like the Fair Digital Object framework, it starts with an identifier that can be resolved, and uses typed web links ([IEFT RFC8288](https://datatracker.ietf.org/doc/html/rfc8288)) and [IANA registered relationship](https://www.iana.org/assignments/link-relations/link-relations.xhtml) types to enable an agent to quickly see what is identified and navigate to metadata with more information. As is outlined in [van de Sompel, 2021](https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue), these signposting links can implement the linking requirments of the Fair Digital Object Framework. 
 
 Figure 1 provides a view of the relationship between CDIF metadata and discovery concepts. From the CDIF discovery perspective, a user (human or machine) searches for resources containing the information they need ('Resource' in the diagram), and subsequently considers whether the digital object(s) containing or representing the resource are useful for their application. The MetadataRecord associated with a Resource (hasMetadata or describedby relationship) provides the information to support discovery and evaluation, and access in this approach. In the FDO and Signposting perspective, a user (especially a machine agent) starts with an identifier (PID) for a digital object (FDOF PID in the diagram), and seeks to understand what it is about, how it is formatted, and what can they do with it. This is done by accessing the FDOFIdentifierRecord (Kernel metadata) and then, if necessary, the full metadata record, perhaps using Signposting links using a profile parameter for FDOF metadata on a describedby link. 
 
@@ -113,13 +113,13 @@ The CDIF metadata requirements outlined above include properties necessary to cr
 
 ## <a name="impapp" a/> Implementation approaches
 
-As a starting point, the resources of interest must be documented with metadata content that meets the requirements outlined in the [Metadata Content Requirements](#mdcontent) section, and is serialized following the CDIF schema.org profile *(currently in [Appendix 1](#appendix_1), likely to move to a separate document)*. Given that the metadata follows CDIF conventions, software can be written to extract information to enable client actions, whether that is populating a search index or accessing a useful resource representation. The workflow is reviewed here, and then discussed in more detail below.
+As a starting point, the resources of interest must be documented with metadata content that meets the requirements outlined in the [Metadata Content Requirements](#mdcontent) section, and is serialized following the CDIF schema.org profile *(currently in [Appendix 1](#appendix-1), likely to move to a separate document)*. Given that the metadata follows CDIF conventions, software can be written to extract information to enable client actions, whether that is populating a search index or accessing a useful resource representation. The workflow is reviewed here, and then discussed in more detail below.
 
-Finding documents to index: Web-crawling is still an important approach to finding and indexing resources on the web, and this approach is supported by Signposting. A more proactive and widely used approach is the sitemap, which is a list of web locations (URLs) containing files that a hosting agent wants search engines to index. Many search engines enable providers to register sitemap locations. Alternatively, root directories on web servers can use a 'robots.txt' file to point to one or more sitemaps that should be indexed.
+Finding documents to index: Web-crawling is still an important approach to finding and indexing resources on the web, and this approach is supplemented by Signposting. A different and widely used approach is the sitemap, which is a list of web locations (URLs) for files that a hosting agent wants search engines to index. Many search engines enable providers to register sitemap locations. Alternatively, root directories on web servers can use a 'robots.txt' file to point to one or more sitemaps that should be indexed.
 
 Getting the metadata: Once a crawler for a search application finds a document that should be indexed, the question is where is the metadata to index, and what conventions does the metadata use. There are several approaches:
 
-1.  Each resource has an html landing page that describes the resource for human users, and contains embedded CDIF JSON-LD metadata (See [Appendix 1](#appendix_1)) for machine clients. Metadata can be embedded in landing pages using the HTML \<script\> element, in alignment with the Data on the Web Best Practices, specifically section 8.2, Metadata[^8]. This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the \<head\> section of an HTML document. The \<script\> element has at minimum a 'type' attribute that provides a MIME-type specifying the type of script.
+1.  Each resource has an html landing page that describes the resource for human users, and contains embedded CDIF JSON-LD metadata (See [Appendix 1](#appendix-1)) for machine clients. Metadata can be embedded in landing pages using the HTML \<script\> element, in alignment with the Data on the Web Best Practices, specifically section 8.2, Metadata[^8]. This approach requires that each published resource has a human-readable landing page, intended to be the target of search by human users. Scripts are normally embedded in the \<head\> section of an HTML document. The \<script\> element has at minimum a 'type' attribute that provides a MIME-type specifying the type of script.
 
 ![Example D1. A JSON-LD metadata object embedded as a script in an HTML document.](images/JSON-LDscriptInHTML.jpg) Example 1. A JSON-LD metadata object embedded as a script in an HTML document.
 
@@ -131,7 +131,7 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 4.  The server providing the resource can be configured to include \<link\> elements in the HTTP header[^11] that indicate the location of machine-actionable metadata describing the subject of URL target[^12]. As in the HTML link approach, these links would have a "rel='describedby'" attribute to indicate that the link is to metadata, a 'type' attribute to provide the MIME type of the target metadata record, and optionally a 'profile' attribute to identify specific metadata conventions. The advantage of this approach is that the HTTP header links can be provided for any resource that has an HTTP URL, so the links to metadata can be accessed for non-textual resources that do not have an associated HTML landing page. If the download size for the resource is large, a client can use the HTTP 'head' request to access this header information without downloading the entire file[^13]. This approach would enable indexing of large resource collections that have a single landing page, but for which the individual resources do not have a landing page. The downside is that many client applications do not use the HTTP header information[^14]. This is a second Signposting approach. CDIF recommends this approach for resources that do not have landing pages; see implementation details below.
 
-5.  A sitemap can point directly to metadata documents in formats that the search engine can parse. The CDIF JSON-LD metadata documents must be directly accessible via a URL. With the basic sitemap XML schema, all metadata would need to conform to a single profile, a set of conventions for content and serialization. In the implementation section below, the CDIF proposing using an extension to the sitemap scheme that allows labeled links to the indexing targets.
+5.  A sitemap can point directly to metadata documents in formats that the search engine can parse. With the basic sitemap XML schema, all metadata would need to conform to a single profile. In the implementation section below, the CDIF proposes using an extension to the sitemap scheme that allows labeled links to the indexing targets.
 
 6. Another option is for the sitemap to provide a URL that retrieves a document containing a collection of metadata records, something like the US Government Data.gov Project Open Data Catalog[^15], or Ocean Info Hub graph first approach[^16], with individual records using CDIF JSON-LD. 
 
@@ -143,7 +143,7 @@ Getting the metadata: Once a crawler for a search application finds a document t
 
 Once the harvester has a URL for a location to index, how do they know where the metadata is relative to that location? There are several approaches:
 
--   Try a [HTTP HEAD request](https://www.rfc-editor.org/rfc/rfc9110#HEAD) the URL and inspect. If the Content-Type header value is a known metadata type and profile, then have a document containing a single metadata record. Failing that look for links in the header; if there is a link with rel='describedby', with a known type and profile, get the content at that link. 
+-   Try a [HTTP HEAD request](https://www.rfc-editor.org/rfc/rfc9110#HEAD) on the URL and inspect. If the Content-Type header value is a known metadata type and profile, then the URL will get a document containing a single metadata record that can be indexed. Failing that the client can look for links in the HTTP header; if there is a link with rel='describedby', with a known type and profile, get the content at that link. 
 
 -   GET the content at the URL. Look for a <script> element with a known type and profile. Failing that look for <link> elements with rel='describedby' and a known type and profile, then get the content at that link.  
 
@@ -151,7 +151,7 @@ This general procedure can be simplified if the sitemap or other catalog the har
 
 *What does the harvester do with the metadata?* There a many possible approaches a client application could use to extract the information it needs from a metadata record. The simplest and likely most accurate approach is for the metadata to conform to a profile that the application is programmed to parse, and to communicate that profile conformance to the application. This entails two requirements. The profile must be documented in a way that allows software developers to write code to parse metadata conforming to the profile, and the profile must have an identifier that can be used to assert conformance.
 
-The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications \-- using different formats or profiles[^18]. The \<script\> element can use the 'type' and 'profile' attributes to identify the particular conventions.
+The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows metadata to be offered following multiple specifications with  the 'type' and 'profile' attributes used to identify the particular conventions.[^18]. 
 
 ![Example D3. Script type with a type parameter in the MIME type string](images/TypedScriptInHTML.png)  
 *Example 3. Script type with a type parameter in the MIME type string.*
@@ -164,7 +164,7 @@ Minimally, the metadata record should assert the specification used to generate 
 
 These recommendations are intended to be applicable for publication of metadata on the web to support a basic level of discovery interoperability for static resources with or without associated landing pages. Resources accessible via APIs that support functionality beyond simple static resource retrieval, e.g. subsetting, filtering, data transformations, or negotiation transactions related to security or confidentiality, are out of scope. Future work will define levels of conformance for more sophisticated functionality. For the CDIF, we recommend conventions for 1) what conventions ('standards') should be used so that the metadata is machine actionable; 2) how crawlers find documents to index or use; 3) how metadata is incorporated in or accessed from those documents. The content recommendations and implementation outlined in [Appendix 1](#appendix-1) cover the first of these topics. The second and third topics are discussed here.
 
-Figure D1 (below) is a flow chart showing the recommended decision tree for metadata publishers to determine how to expose their metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
+Figure 2 (below) is a flow chart showing the recommended decision tree for metadata publishers to determine how to expose their metadata. Numbers in the following discussion refer to numbered boxes in the diagram.
 
 ![Figure 2. Decision graph to determine where metadata is located](images/MetadataPublicationWorkflow.png) 
 *Figure 2. Decision graph to determine where metadata is located. Steps are numbers and referenced in text.*  
@@ -173,40 +173,32 @@ Figure D1 (below) is a flow chart showing the recommended decision tree for meta
 
 Starting at the top (1), if there are HTML landing pages that describe the resources of interest, and the metadata publisher has the necessary authority to update the content of these pages, then CDIF metadata should be embedded in an HTML \<script\> element in the \<head\> section of each landing page (3). The script should have the following type and profile attributes:
 
-*type=\"application/ld+json profile="CDIF1.0\"*
+*type=\"application/ld+json\" profile=\"CDIF1.0\"*
 
 ### Individual metadata file URLs
 
-If the resources of interest do not have individual landing pages, or the metadata publisher does not have authority to update the content of landing pages, the metadata should be placed in a web-accessible location (4 in Figure D1 ). There are two common approaches:
+If the resources of interest do not have individual landing pages, or the metadata publisher does not have authority to update the content of landing pages, the metadata should be placed in a web-accessible location (step 4 in Figure 2). There are two common approaches:
 
--   Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialized as JSON-LD (see [Appendix 1](#appendix-1)). MIME type for the metadata file is
+-   Each metadata record is accessed in a separate, static file with its own URL. The CDIF metadata is serialized as JSON-LD (see [Appendix 1](#appendix-1)). MIME type for the metadata file, returned as the Content-Type parameter in the HTTP response header, is:
 
-*type=\"application/ld+json profile=CDIF1.0"*
+*type=\"application/ld+json\" profile=\"CDIF1.0"*
 
 -   Each metadata record is accessed dynamically from the server using a URL.There are various open-source metadata server systems that can be configured to deliver CDIF metadata from the server's metadata database, e.g. GeoNetwork OpenSource[^19], GeoPortal[^20], CKAN[^21]. The metadata retrieval URLs have different syntax depending on the software used, but typically include a metadata record identifier and a format parameter that would be used to indicate that CDIF metadata should be returned. If there is a format parameter in URL requests, its value should be '**CDIF1.0**'.
 
 ### Metadata list file
 
--   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList[^22]. See example in [Appendix 1](#appendix-1). The MIME type for the collection is:
+-   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList[^22]. See example in [Appendix 1](https://github.com/Cross-Domain-Interoperability-Framework/Discovery/blob/main/discoverability.md#example-3-item-list-with-a-collection-of-metadata-records). The MIME type for the collection is:
 
-*type=\"application/ld+json profile=CDIF-list-1.0"*
+*type=\"application/ld+json\" profile=\"CDIF-list-1.0"*
 
-In any of these scenarios, a sitemap[^23] should be assembled that lists the URLs of all the locations that a metadata crawler or harvester should access (5 in Figure ). The basic sitemap is defined as an XML document that is a structured list of URLs, with an optional date stamp property that should indicate when the metadata at the URL target location was last updated.
+In any of these scenarios, a sitemap[^23] should be assembled that lists the URLs of all the locations that a metadata crawler or harvester should access (5 in Figure ). The basic sitemap is defined as an XML document that is a structured list of URLs, with an optional date stamp property that should indicate when the metadata at the URL target location was last updated. The sitemaps.org documentation does provide for users to define extensions[^24],
 
-The remaining challenge is communicating to a harvesting agent which of the options outlined above should be used to extract metadata at the URLs provided in the sitemap. CDIF proposes using the ResourceSync Framework Specification (ANSI/NISO Z39.99-2017)
+In order to communicate to a harvesting agent which of the options outlined above should be used to extract metadata at the URLs provided in the sitemap CDIF proposes using the [ResourceSync Framework Specification (ANSI/NISO Z39.99-2017)](http://www.openarchives.org/rs/1.1/resourcesync) (ResSync). This extension makes the site map a 'resourceList' as defined by the ResourceSync Framework Specification. This adds a link element in each <url> element in the sitemap with link type and profile attributes, saving clients the trouble of 'feeling around' as outlined in the implementation section (above). A CDIF-aware harvester would check the sitemap to see if it contains  <rs:md capability="resourcelist"> element, and if so, look for the <rs:ln> elements inside each sitemap <url> entry. The CDIF aware harvester would then used the href attibutes in teh <rs:ln> elements as the actual harvest targets. See [Appendix 4](#appendix-4) for an example sitemap using these conventions. 
+
+The sitemap should be linked from a robots.txt[^25] file placed in the root of the server containing the sitemap and metadata. In the robots file, the user agent value can be used to indicate a sitemap link for CDIF-aware agents:
 
 
-The Sitemap XML schema does not include elements to associate link-type information with URLs in the sitemap. The sitemaps.org documentation does provide for users to define extensions[^24], and CDIF might implement this approach in the future. The recommendation in the mean time is to link to the sitemap from a robots.txt[^25] file placed in the root of the server containing the sitemap and metadata. In the robots file, the user agent value indicates the harvest protocol implemented. For the recommendations above, these are the user agent strings:
-
--   Embedded in HTML: *User-agent: CDIF-embed-in-HTML*
-
--   Individual metadata file URLs: *User-agent: CDIF-url-get-metadata*
-
--   Metadata list file: *User-agent: CDIF-url-get-metadata-collection*
-
-In the robots.txt file, use the sitemap directive to provide the URL to the sitemap.xml document that contains the URLs to harvest. Example robots.txt entry:
-
-*User-agent: CDIF-embed-in-HTML*
+*User-agent: CDIF1.0*
 
 *Sitemap: http://www.example.com/sitemap.xml*
 
@@ -665,6 +657,60 @@ Signposting Relation Type | CDIF schema.org element | Description |
  |item | /"about"/"relatedLink"/ /{"linkRelationship": "hasPart",<br>"target": {<br>"url":"http://someurl...", <br>"contentType": "resource type of the item"}} | The origin of the link is a collection of resources and the target of the link is a resource that belongs to that collection. It is the inverse of the collection relation type. In CDIF, contentType and encodingType properties can provide details about the kind of linked collection item. | 
  |collection | /"about"/"relatedLink"/ / {"linkRelationship": "IsPartOf", <br>"target": {<br> "url":"http:someURL.."<br> "contentType": "Collection"}} | The origin of the link is a resource that belongs to a collection and the target of the link is the collection to which it belongs. It is the inverse of the item relation type. In CDIF, the target name and description (not in example to left) can provide additional information about collection. | 
 
+# Appendix 4
+
+## Example sitemap using ResourceSync extension
+
+Example sitemap, with comments.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:rs="http://www.openarchives.org/rs/terms/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.openarchives.org/rs/terms/ http://www.openarchives.org/rs/1.0/resourcesync.xsd   
+    http://www.sitemaps.org/schemas/sitemap/0.9  https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <!-- note that the 'profile' attribute is not currently in the resourcesync xml schema, 
+     but is expected to be added. This instance document thus does not validate against the
+     current schema, but should function as expected. -->
+    <rs:md capability="resourcelist"  at="2023-07-11T09:00:00Z"/>
+    <url>
+        <loc>https://somerepository.org/res2</loc>
+        <!--  this is link to an html page that contains an embedded metadata record conforming to CDIFdiscovery1.0. 
+            The script is identified as <script id="243623" type="application/json-ld" 
+            profile="https://example.org/profile/CDIFdiscovery1.0">. 
+            A signposting link in that html doc, and/or in the HTTP head response for https://example.com/res2
+            will look like <link href="https://somerepository.org/res2#243623"
+            type="text/html"  profile="https://example.org/profile/CDIFdiscovery1.0" />  -->
+        <rs:ln  rel="describedby" 
+            href="https://somerepository.org/res2#243623" 
+            type="text/html"  
+            profile="https://example.org/profile/CDIFdiscovery1.0"/>
+    </url>
+    <url>
+        <loc>https://somerepository.org/res3</loc>
+        <!-- the rs:ln href is link directly to the metadata record that describes https://example.com/res3, 
+           conforming to CDIFdiscovery1.0 profile. For use when the <loc> gets a content item directly, 
+           not an html page. In this case, we expect that the HTTP head response for  
+           https://example.com/res3 will have describedby signposting link to the same location 
+           with the same parameters -->
+        <rs:ln  rel="describedby" 
+            href="https://somerepository.org/metadata/res3.json" 
+            type="application/ld+json"  
+            profile="https://example.org/profile/CDIFdiscovery1.0"/>
+    </url>
+    <url>
+        <loc>http://somerepository.com/collection/24673</loc>
+        <!-- the rs:ln href is a link to a JSON-LD file containing a schema.org ItemList with a collection of metadata for 
+            resources hosed by this source.  It is expected that HEAD requests for individual items in teh collection
+            will get a response like the last example. " -->
+        <rs:ln  rel="describedby" 
+            href="http://somerepository.org/metadataCollection/24673.json" 
+            type="application/ld+json"  
+            profile="https://example.org/profile/CDIFdiscoveryCollection1.0"/>
+    </url>  
+</urlset>
+```
 
 # Footnotes
 

@@ -670,61 +670,6 @@ Signposting Relation Type | CDIF schema.org element | Description |
  |item | /"about"/"relatedLink"/ /{"linkRelationship": "hasPart",<br>"target": {<br>"url":"http://someurl...", <br>"contentType": "resource type of the item"}} | The origin of the link is a collection of resources and the target of the link is a resource that belongs to that collection. It is the inverse of the collection relation type. In CDIF, contentType and encodingType properties can provide details about the kind of linked collection item. | 
  |collection | /"about"/"relatedLink"/ / {"linkRelationship": "IsPartOf", <br>"target": {<br> "url":"http:someURL.."<br> "contentType": "Collection"}} | The origin of the link is a resource that belongs to a collection and the target of the link is the collection to which it belongs. It is the inverse of the item relation type. In CDIF, the target name and description (not in example to left) can provide additional information about collection. | 
 
-# Appendix 4
-
-## Example sitemap using ResourceSync extension
-
-Example sitemap, with comments.
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:rs="http://www.openarchives.org/rs/terms/"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.openarchives.org/rs/terms/ http://www.openarchives.org/rs/1.0/resourcesync.xsd   
-    http://www.sitemaps.org/schemas/sitemap/0.9  https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
- <!-- note that the 'profile' attribute is not currently in the resourcesync xml schema, 
-     but is expected to be added. This instance document thus does not validate against the
-     current schema, but should function as expected. -->
-    <rs:md capability="resourcelist"  at="2023-07-11T09:00:00Z"/>
-    <url>
-        <loc>https://somerepository.org/res2</loc>
-        <!--  this is link to an html page that contains an embedded metadata record conforming to CDIFdiscovery1.0. 
-            The script is identified as <script id="243623" type="application/json-ld" 
-            profile="https://example.org/profile/CDIFdiscovery1.0">. 
-            A signposting link in that html doc, and/or in the HTTP head response for https://example.com/res2
-            will look like <link href="https://somerepository.org/res2#243623"
-            type="text/html"  profile="https://example.org/profile/CDIFdiscovery1.0" />  -->
-        <rs:ln  rel="describedby" 
-            href="https://somerepository.org/res2#243623" 
-            type="text/html"  
-            profile="https://example.org/profile/CDIFdiscovery1.0"/>
-    </url>
-    <url>
-        <loc>https://somerepository.org/res3</loc>
-        <!-- the rs:ln href is link directly to the metadata record that describes https://example.com/res3, 
-           conforming to CDIFdiscovery1.0 profile. For use when the <loc> gets a content item directly, 
-           not an html page. In this case, we expect that the HTTP head response for  
-           https://example.com/res3 will have describedby signposting link to the same location 
-           with the same parameters -->
-        <rs:ln  rel="describedby" 
-            href="https://somerepository.org/metadata/res3.json" 
-            type="application/ld+json"  
-            profile="https://example.org/profile/CDIFdiscovery1.0"/>
-    </url>
-    <url>
-        <loc>http://somerepository.com/collection/24673</loc>
-        <!-- the rs:ln href is a link to a JSON-LD file containing a schema.org ItemList with a collection of metadata for 
-            resources hosed by this source.  It is expected that HEAD requests for individual items in teh collection
-            will get a response like the last example. " -->
-        <rs:ln  rel="describedby" 
-            href="http://somerepository.org/metadataCollection/24673.json" 
-            type="application/ld+json"  
-            profile="https://example.org/profile/CDIFdiscoveryCollection1.0"/>
-    </url>  
-</urlset>
-```
-
 # Footnotes
 
 [^1]: https://www.dublincore.org/resources/metadata-basics/

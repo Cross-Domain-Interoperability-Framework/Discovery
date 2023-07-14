@@ -690,27 +690,35 @@ Signposting Relation Type | CDIF schema.org element | Description |
 
 [^7]: Weigel, T., Plale, B., Parsons, M., Zhou, G., Luo, Y., Schwardmann, U., Quick, R., Hellström, M., Kurakawa, K. (2018). RDA Recommendation on PID Kernel Information (Version 1). DOI: https://doi.org/10.15497/RDA00031
 
-[^8]: https://www.w3.org/TR/dwbp/#metadata
+[^boni22]: https://fairdigitalobjectframework.org/
 
-[^9]: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html
+[^8288]: https://datatracker.ietf.org/doc/html/rfc8288
 
-[^10]: https://signposting.org/
+[^rel]: https://www.iana.org/assignments/link-relations/link-relations.xhtml
 
-[^11]: https://tools.ietf.org/html/rfc8288
+[^vds21]: https://www.slideshare.net/hvdsomp/fair-signposting-a-kiss-approach-to-a-burning-issue
 
-[^12]: https://www.w3.org/TR/ldp/#ldpr-hdrs
+[^weigel]: Weigel, T., Plale, B., Parsons, M., Zhou, G., Luo, Y., Schwardmann, U., Quick, R., Hellström, M., Kurakawa, K. (2018). RDA Recommendation on PID Kernel Information (Version 1). DOI: https://doi.org/10.15497/RDA00031
 
-[^13]: https://tools.ietf.org/html/rfc7231#section-4.3.2
+[^10]: https://www.w3.org/TR/dwbp/#metadata
 
-[^14]: https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body
+[^11]: https://www.w3.org/TR/2011/WD-html5-author-20110809/the-meta-element.html
 
-[^15]: https://project-open-data.cio.gov/v1.1/schema/catalog.json
+[^12]: https://signposting.org/
 
-[^16]: https://book.oceaninfohub.org/indexing/graphpub.html
+[^13]: https://tools.ietf.org/html/rfc8288
 
-[^17]: https://docs.ogc.org/DRAFTS/20-004.html#sc_record-collection-overview
+[^14]: https://tools.ietf.org/html/rfc7231#section-4.3.2
 
-[^18]: https://www.w3.org/TR/dx-prof-conneg/#dfn-profile
+[^15]: https://www.w3.org/TR/ldp-bp/#use-case-2-providing-metadata-in-both-http-headers-and-html-body
+
+[^16]: https://project-open-data.cio.gov/v1.1/schema/catalog.json
+
+[^17]: https://book.oceaninfohub.org/indexing/graphpub.html
+
+[^18]: https://docs.ogc.org/DRAFTS/20-004.html#sc_record-collection-overview
+
+[^cprf]: https://www.w3.org/TR/dx-prof-conneg/#dfn-profile
 
 [^19]: https://geonetwork-opensource.org/
 
@@ -722,59 +730,57 @@ Signposting Relation Type | CDIF schema.org element | Description |
 
 [^23]: https://www.sitemaps.org/protocol.html
 
-[^24]: https://www.sitemaps.org/protocol.html#extending
+[^robot]: https://datatracker.ietf.org/doc/rfc9309/
 
-[^25]: https://datatracker.ietf.org/doc/rfc9309/
+[^25]: https://edisciplinas.usp.br/pluginfile.php/312607/mod_resource/content/1/ISO%20704.pdf
 
-[^26]: https://edisciplinas.usp.br/pluginfile.php/312607/mod_resource/content/1/ISO%20704.pdf
+[^26]: PR-PIDProfileAttributes-2.0-20220608 (https://docs.google.com/document/d/1c2mZziq5pIPmLxMHLcYqlWrjYsc2ezGMXvp0E46iljo); Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/), PR-KernelAtributues-2.0 (https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0)
 
-[^27]: PR-PIDProfileAttributes-2.0-20220608 (https://docs.google.com/document/d/1c2mZziq5pIPmLxMHLcYqlWrjYsc2ezGMXvp0E46iljo); Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/), PR-KernelAtributues-2.0 (https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0)
+[^27]: https://doi.org/10.1007/s00799-005-0128-x
 
-[^28]: https://doi.org/10.1007/s00799-005-0128-x
+[^28]: https://www.ietf.org/archive/id/draft-kunze-ark-37.html#name-definition-of-identifier-2
 
-[^29]: https://www.ietf.org/archive/id/draft-kunze-ark-37.html#name-definition-of-identifier-2
+[^29]: https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0
 
-[^30]: https://docs.google.com/document/d/1OF49wTNVuv-6OXlNerhBTqVtHyc7jutTaUHjn6BZCs0
+[^30]: based on D2.8 FAIR Semantics Recommendations, Third Iteration, H2020-INFRAEOSC-2018-4, https://doi.org/10.5281/zenodo.667
 
-[^31]: based on D2.8 FAIR Semantics Recommendations, Third Iteration, H2020-INFRAEOSC-2018-4, https://doi.org/10.5281/zenodo.667
+[^31]: https://www.w3.org/TR/2013/REC-prov-dm-20130430
 
-[^32]: https://www.w3.org/TR/2013/REC-prov-dm-20130430
+[^32]: https://schema.org/
 
-[^33]: https://schema.org/
+[^33]: https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
-[^34]: https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
+[^34]: https://www.w3.org/TR/json-ld11/
 
-[^35]: https://www.w3.org/TR/json-ld11/
+[^35]: https://www.w3.org/TR/json-ld11-framing/
 
-[^36]: https://www.w3.org/TR/json-ld11-framing/
+[^36]: https://www.w3.org/TR/json-ld11/#keywords
 
-[^37]: https://www.w3.org/TR/json-ld11/#keywords
+[^37]: Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/)
 
-[^38]: Bonino, Guizzardi, Sales 2022 (https://fairdigitalobjectframework.org/)
+[^38]: https://schema.org/docs/full.html
 
-[^39]: https://schema.org/docs/full.html
+[^39]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes
 
-[^40]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#bounding-boxes
+[^40]: https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt
 
-[^41]: https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt
+[^41]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables
 
-[^42]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#variables
+[^42]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType
 
-[^43]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Experimental.md#AdvancedVariableValueType
+[^43]: https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml
 
-[^44]: https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml
+[^44]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#funding
 
-[^45]: https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#funding
+[^45]: https://spdx.org/rdf/terms/
 
-[^46]: https://spdx.org/rdf/terms/
+[^46]: https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html
 
-[^47]: https://spdx.org/rdf/spdx-terms-v2.1/classes/Checksum___-238837136.html
+[^47]: https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf
 
-[^48]: https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf
+[^48]: See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/
 
-[^49]: See sections 3.1 and 3.2 in https://fairdigitalobjectframework.org/
+[^49]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
 
-[^50]: https://docs.google.com/document/d/1QVUR6vlp6s6LxZndMslym9pmM90rFUR6__q3cuXSQf8/edit#heading=h.z337ya
-
-[^51]: https://signposting.org/FAIR/#level1
+[^50]: https://signposting.org/FAIR/#level1
 

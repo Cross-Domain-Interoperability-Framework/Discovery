@@ -7,15 +7,21 @@
     http://www.sitemaps.org/schemas/sitemap/0.9  https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
      
     <rs:md capability="resourcelist"  at="2023-07-11T09:00:00Z"  />
-    <rs:md capability="CDIFresourcelist"  />
+    <rs:md capability="CDIFresourcelist"  /> <!-- this flags this sitemap as using CDIF resourceLink
+                sitemap conventions -->
+    <!--<rs:ln  rel="profile"
+        href="https://example.org/profile/CDIFembeddedmd1.0"/>   if the profile is specified in the 
+        urlset element, then all URLs in the doc MUST conform to that profile. -->
 
     <url>
         <loc>https://somerepository.org/res2#243623</loc>
-        <!-- url fragment is supposed to get directly to the script with the CDIF JSON-LD metadata. -->
-        <!-- the metadata describes a resource, not a landing page, so the href should be URI for the resource.
-           The URI might well resolve to a landing page, but that's not the subject of the metadata. -->
+        <!-- url fragment should get directly to the script with the CDIF JSON-LD metadata. 
+            requires adding id= attribute in the script. -->
+
         <rs:ln  rel="profile"
             href="https://example.org/profile/CDIFembeddedmd1.0"/>
+        <!-- the metadata describes a resource, not a landing page, so the describes href should be URI for the resource.
+           The URI might well resolve to a landing page, but that's not the subject of the metadata. -->
         <rs:ln rel="describes"
             href="https://doi.org/12345/5238htrl"/>
     </url>
@@ -26,7 +32,7 @@
         <rs:ln  rel="profile" 
             href="https://example.org/profile/CDIFdirectmd1.0"/>
         <rs:ln rel="describes"
-            href="http://doi.org/12345/25743lkj"/>
+            href="https://doi.org/12345/25743lkj"/>
     </url>
     
     <url>

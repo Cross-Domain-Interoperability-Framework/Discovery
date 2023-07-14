@@ -189,7 +189,7 @@ If the resources of interest do not have individual landing pages, or the metada
 
 #### Option 3. Metadata list file
 
--   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList[^22]. See example in [Appendix 1](#example-3). The MIME type for the collection is:
+-   A collection of metadata records are gathered in one file accessed using a single URL. For CDIF, this file should contain a set of CDIF JSON-LD metadata objects, implemented as a schema.org ItemList[^22]. See example in [Appendix 1](#example-3-item-list-with-a-collection-of-metadata-records). The MIME type for the collection is:
 
 *type=\"application/ld+json\" profile=\"CDIF-list-1.0"*
 

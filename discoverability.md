@@ -118,6 +118,13 @@ A resource is some identifiable thing of interest to someone; it might be a Digi
 In the Fair Digital Object Framework (FDOF) a Digital Object (DO) is a specific bit stream that carries some information and has a **persistent, registered, resolvable identifier** (PID) that can be resolved to obtain a PID kernel record providing documentation for the source of the PID, expected lifetime, type of resource it identifies, linkage to the resource it identifies, and other attributes specified in a schema identified in the PID kernel record (PID profile)[^7]. The PID kernel record is a metadata record conforming to a particular PID profile. Digital Objects are FAIR (FDOs) when they are part of an ecosystem comprising services and infrastructure to support realization of the FAIR principles. In the Fair Digital Object Framework (FDOF) there must be a mechanism to access either the object or its metadata by dereferencing the object's PID.  Metadata content must enable the identified resource to be found, used and cited, enable interoperability and reuse, and include machine-actionable statements about dependencies and licensing. Bonino et al., 2022[^boni22] propose some approaches to access the FDOFIdentifierRecord (Kernel metadata) and other FDOF requirements; the level of adoption for this approach is uncertain. 
 
 ![FDOF-CDIF metadata relations](images/DigitalObjectOverview.png) Figure 1. FDOF-CDIF metadata relations
+.
+
+.
+
+.
+
+.
 
 # Signposting
 

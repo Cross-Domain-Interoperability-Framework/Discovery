@@ -191,6 +191,12 @@ Minimally, the metadata record should assert the specification used to generate 
 .
 
 .
+
+.
+
+.
+
+.
 # CDIF Recommendations:
 
 ## Scope 

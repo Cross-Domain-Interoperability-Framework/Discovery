@@ -7,7 +7,7 @@ In order for resources to be discoverable on the Web, the search applications th
 
 In the digital world, a wide variety of metadata schemes have evolved for describing resources. These schemes are structured to allow a richer understanding of the information, and typically at least include information about the set of fifteen generic elements identified as the Dublin Core: Creator, Contributor, Publisher, Title, Date, Language, Format, Subject, Description, Identifier, Relation, Source, Type, Coverage, and Rights, first drafted at a 1995 meeting in Dublin, Ohio[^1]. These elements are defined at an abstract level, and served well with free text content values for use by humans. Such semi-structured metadata is insufficient to support programmatic reuse of the described resources; automation requires precise syntax and encoding of information. Thus the CDIF provides recommendations for metadata practices compatible with machine processing.
 
-The use of standardized metadata to describe resources is one facet of discoverability, but mechanisms to make these metadata descriptions discoverable by search applications or other machine agents is also necessary. Search application harvest metadata to index and present in search results. In other cases a machine agent might have an identifier for a resource on the web and want to get its metadata to learn about the content and capabilities of the resource. This document first discusses the metadata content requirements to enable these scenarios, then approaches to make the metadata findable, and finishes with CDIF recommendations. Appendix 1 documents a recommended CDIF metadata serialization format using the schema.org vocabulary and JSON-LD.
+The use of standardized metadata to describe resources is one facet of discoverability, but mechanisms to make these metadata descriptions discoverable by search applications or other machine agents is also necessary. Search application harvest metadata to index and present in search results. In other cases a machine agent might have an identifier for a resource on the web and want to get its metadata to learn about the content and capabilities of the resource. This document first discusses the metadata content requirements to enable these scenarios, then approaches to make the metadata findable, and finishes with . Appendix 1 documents a recommended CDIF metadata serialization format using the schema.org vocabulary and JSON-LD.
 .
 
 .
@@ -180,7 +180,13 @@ The use of \<script\> or \<link\> elements (in the HTTP or HTML header) allows m
 *Example 3. Script type with a type parameter in the MIME type string.*
 
 Minimally, the metadata record should assert the specification used to generate the record in a metadata property.
+.
 
+.
+
+.
+
+.
 # CDIF Recommendations:
 
 ## Scope 

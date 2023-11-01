@@ -187,6 +187,10 @@ Minimally, the metadata record should assert the specification used to generate 
 .
 
 .
+
+.
+
+.
 # CDIF Recommendations:
 
 ## Scope 
@@ -244,6 +248,15 @@ Sitemap: http://www.example.com/CDIFsitemap.xml
 ```
 
 Based on these recommendations, metadata generated using the CDIF content and serialization can be found and harvested by agents using standard off the shelf web technology.
+.
+
+.
+
+.
+
+.
+
+.
 
 # Definitions:
 

@@ -1,4 +1,5 @@
 # Discoverability (superseded)
+
 this version is superseded by draft docx version prepared using WorldFair template for posting to Zenodo to open for public comment.
 see [Cross Domain Interoperability: Discovery](https://docs.google.com/document/d/1-PLzEk7NfQx5R2V1vu3sHddQPZhuUezc)
 

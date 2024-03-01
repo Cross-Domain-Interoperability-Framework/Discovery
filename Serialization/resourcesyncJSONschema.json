@@ -1,0 +1,72 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "http://www.openarchives.org/rs/terms/#",
+    "definitions": {
+        "ln": {
+            "type": "object",
+            "properties": {
+                "otherAttributes": {"type": "object"},
+                "encoding": {"type": "string"},
+                "hash": {"type": "string"},
+                "href": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "length": {"type": "integer"},
+                "modified": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "path": {"type": "string"},
+                "pri": {"type": "integer"},
+                "rel": {"type": "string"},
+                "type": {"type": "string"}
+            }
+        },
+        "md": {
+            "type": "object",
+            "properties": {
+                "otherAttributes": {"type": "object"},
+                "at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "capability": {"type": "string"},
+                "change": {"$ref": "#/definitions/changeType"},
+                "completed": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "encoding": {"type": "string"},
+                "from": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "hash": {"type": "string"},
+                "length": {"type": "integer"},
+                "modified": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "path": {"type": "string"},
+                "type": {"type": "string"},
+                "until": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "changeType": {
+            "type": "string",
+            "enum": [
+                "created",
+                "updated",
+                "deleted"
+            ]
+        }
+    },
+    "properties": {
+        "ln": {"$ref": "#/definitions/ln"},
+        "md": {"$ref": "#/definitions/md"}
+    }
+}

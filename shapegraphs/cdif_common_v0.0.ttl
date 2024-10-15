@@ -8,7 +8,7 @@
 @prefix cdifd: <http://cdif.org/0.1/validation/shacl#>.
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@prefix dcterm: <http://foo.org/dct/> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
 
 # SHACL rules for CDIF discovery, based on ESIPFed Science on schema.org
 # SMR 2024-10-14  start modifying SOSO shacl rules
@@ -496,21 +496,21 @@ cdifd:metadataProperties
 		# metadata record identifier
 		sh:nodeKind sh:IRI ;
 		# Metadata profile identifier (1 to many): Identifier for metadata specification (profile) used to create this metadata record. Generally this will be populated automatically if the metadata is created using CDIF aware tools.
-     	sh:property 
+     	sh:property [
 			sh:path dcterm:conformsTo ;
 			sh:nodeKind sh:Literal ;
 	   		sh:hasValue "ex:cdif_SDO_profile_uri"  ;
+	   		] ;
 		# Metadata Date
-		sh:property 
+		sh:property [
 			sh:path schema:dateModified ;
 	   		sh:nodeKind sh:Literal ;
 			sh:severity sh:Info ;
-			sh:message "Please provide date of most recent update to the metadata record." 
+			sh:message "Please provide date of most recent update to the metadata record."  ;
+			] ;
 		# Metadata Contact Agent
 		
     sh:severity sh:Info ;
     sh:message "SubjectOf property with target DigitalDocument has information about the metadata record itself " ;
     sh:description "https://cross-domain-interoperability-framework.github.io/cdifbook/metadata/contentmodel.html#required-for-metadata-management" ;
     .
-	
-	

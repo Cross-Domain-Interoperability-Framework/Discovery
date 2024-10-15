@@ -7,14 +7,15 @@
 @prefix soso: <http://science-on-schema.org/1.2.3/validation/shacl#> .
 @prefix cdifd: <http://cdif.org/0.1/validation/shacl#>.
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix time: <http://www.w3.org/2006/time#>.
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dcterm: <http://foo.org/dct/> .
 
 # SHACL rules for CDIF discovery, based on ESIPFed Science on schema.org
 # SMR 2024-10-14  start modifying SOSO shacl rules
 
 cdifd:DatasetNS1Shape
     a sh:NodeShape ;
-    sh:targetClass <http://schema.orgDataset/> ;
+    sh:targetClass schema:Dataset ;
 # check for missing backslash on namespace URI
     sh:message "Expecting schema.org namespace of <http://schema.org/> not <http://schema.org>"@en ;
 	sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/GETTING-STARTED.md#specifying-the-context" ;
@@ -35,7 +36,7 @@ cdifd:DatasetNS2Shape
     ].
 cdifd:DatasetNS3Shape
     a sh:NodeShape ;
-    sh:targetClass <https://schema.orgDataset/> ;
+    sh:targetClass schema:Dataset ;
 # check for wrong http protocol (https) and missing backslash on namespace URI
     sh:message "Expecting schema.org namespace of <http://schema.org/> not <https://schema.org>"@en ;
 	sh:description "see https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/GETTING-STARTED.md#specifying-the-context" ;
@@ -163,7 +164,7 @@ cdifd:Dataset-title
 # Rights (1 to many entry): Information about required access permissions, licences, contractual requirements, use constraints, and security constraints. Might be described in text or through links to external documents. 
 cdifd:Dataset-license
  a sh:PropertyShape ;
-    sh:path sh:or [schema:license, schema:conditionsOfAccess ];
+    sh:path ( [ sh:alternativePath ( schema:license schema:conditionsOfAccess ) ] ) ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRIOrLiteral ;
     sh:message "license items must be a string or URL "@en ;
